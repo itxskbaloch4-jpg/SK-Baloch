@@ -19,11 +19,20 @@
     scroll-behavior:smooth;
 }
 
+html,body{
+    overflow-x:hidden;
+    width:100%;
+}
+
 body{
     font-family:'Poppins',sans-serif;
     background:#07111f;
     color:white;
-    overflow-x:hidden;
+}
+
+img{
+    max-width:100%;
+    display:block;
 }
 
 body::-webkit-scrollbar{
@@ -51,6 +60,7 @@ header{
     display:flex;
     align-items:center;
     position:relative;
+    padding:80px 0;
 }
 
 .hero{
@@ -60,11 +70,16 @@ header{
     align-items:center;
 }
 
+.hero-text{
+    width:100%;
+}
+
 .hero-text h1{
     font-size:70px;
     line-height:1.1;
     margin-bottom:25px;
     font-weight:800;
+    word-break:break-word;
 }
 
 .gradient{
@@ -93,6 +108,7 @@ header{
     font-weight:600;
     transition:.4s;
     display:inline-block;
+    text-align:center;
 }
 
 .primary{
@@ -119,6 +135,7 @@ header{
     border:1px solid rgba(255,255,255,.1);
     backdrop-filter:blur(14px);
     box-shadow:0 20px 40px rgba(0,0,0,.35);
+    width:100%;
 }
 
 .hero-card h3{
@@ -157,6 +174,7 @@ section{
 .section-title h2{
     font-size:50px;
     margin-bottom:20px;
+    word-break:break-word;
 }
 
 .section-title p{
@@ -174,6 +192,7 @@ section{
     line-height:2;
     color:#d7d7d7;
     box-shadow:0 20px 40px rgba(0,0,0,.3);
+    overflow:hidden;
 }
 
 .portfolio-grid{
@@ -308,6 +327,7 @@ footer{
     display:flex;
     align-items:center;
     gap:15px;
+    flex-wrap:wrap;
 }
 
 .rating{
@@ -332,6 +352,150 @@ footer{
 
 .section-title h2{
     font-size:38px;
+}
+
+}
+
+@media(max-width:768px){
+
+.container{
+    width:92%;
+}
+
+header{
+    min-height:auto;
+    padding:70px 0;
+}
+
+.hero{
+    gap:40px;
+}
+
+.hero-text h1{
+    font-size:38px;
+    line-height:1.2;
+}
+
+.hero-text p{
+    font-size:16px;
+}
+
+.hero-card{
+    padding:25px;
+}
+
+.hero-card h3{
+    font-size:24px;
+}
+
+.stats{
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.stat{
+    padding:20px;
+}
+
+.stat h2{
+    font-size:28px;
+}
+
+.section-title{
+    margin-bottom:45px;
+}
+
+.section-title h2{
+    font-size:32px;
+}
+
+.offer-box{
+    padding:30px 22px;
+}
+
+.portfolio-grid{
+    grid-template-columns:1fr;
+}
+
+.review-grid{
+    grid-template-columns:1fr;
+}
+
+.project img{
+    height:220px;
+}
+
+.project-content{
+    padding:22px;
+}
+
+.review{
+    padding:28px;
+}
+
+.btns{
+    flex-direction:column;
+    width:100%;
+}
+
+.btn{
+    width:100%;
+}
+
+.floating-buttons{
+    right:15px;
+    bottom:15px;
+}
+
+.float-btn{
+    width:58px;
+    height:58px;
+    font-size:24px;
+}
+
+}
+
+@media(max-width:480px){
+
+.hero-text h1{
+    font-size:32px;
+}
+
+.section-title h2{
+    font-size:28px;
+}
+
+.hero-text p,
+.section-title p,
+.offer-box p,
+.project-content p,
+.review p{
+    font-size:15px;
+    line-height:1.8;
+}
+
+.stats{
+    grid-template-columns:1fr;
+}
+
+.stat h2{
+    font-size:25px;
+}
+
+.hero-card{
+    padding:22px;
+}
+
+.offer-box{
+    border-radius:22px;
+}
+
+.project{
+    border-radius:22px;
+}
+
+.review{
+    border-radius:22px;
 }
 
 }
@@ -620,4 +784,4 @@ Real client feedback from businesses and entrepreneurs who trusted SK Baloch for
 </footer>
 
 </body>
-  </html>
+    </html>
