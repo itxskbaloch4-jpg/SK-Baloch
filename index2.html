@@ -1,206 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Recent Works</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  :root{
-    --bg:#0a0a0f;
-    --surface:#111118;
-    --card:#16161f;
-    --border:#2a2a3a;
-    --accent:#6c63ff;
-    --accent2:#ff6584;
-    --text:#f0f0ff;
-    --muted:#888899;
-  }
-  body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;overflow-x:hidden}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recent Works | SK Baloch Premium</title>
+    
+    <!-- Fonts & Frameworks -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-  .hero{text-align:center;padding:80px 24px 48px;position:relative}
-  .hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(108,99,255,0.12) 0%,transparent 70%);pointer-events:none}
-  .tag{display:inline-block;background:rgba(108,99,255,0.15);border:1px solid rgba(108,99,255,0.3);color:#a09cff;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:6px 16px;border-radius:40px;margin-bottom:20px;font-family:'DM Sans',sans-serif;font-weight:500}
-  h1{font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:800;line-height:1.1;background:linear-gradient(135deg,#f0f0ff 30%,#a09cff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-  .subtitle{color:var(--muted);margin-top:16px;font-size:1.05rem;font-weight:300;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.6}
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: #050505; 
+            color: #fafafa; 
+            cursor: none; /* Custom cursor active */
+            overflow-x: hidden;
+        }
 
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;max-width:1100px;margin:0 auto;padding:0 24px 100px}
+        /* Custom Magnetic Cursor */
+        #cursor { 
+            width: 20px; height: 20px; border: 2px solid #6c63ff; border-radius: 50%; 
+            position: fixed; pointer-events: none; z-index: 9999; transition: transform 0.1s ease; 
+        }
 
-  .card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:transform 0.3s,border-color 0.3s,box-shadow 0.3s}
-  .card:hover{transform:translateY(-6px);border-color:rgba(108,99,255,0.4);box-shadow:0 20px 60px rgba(108,99,255,0.12)}
+        /* Glassmorphism Effect */
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.02); 
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .glass-card:hover { 
+            background: rgba(255, 255, 255, 0.05); 
+            border-color: #6c63ff; 
+            transform: translateY(-10px);
+        }
 
-  .card-img{width:100%;height:200px;background:var(--surface);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
-  .card-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s}
-  .card:hover .card-img img{transform:scale(1.05)}
-  .img-fallback{display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--muted)}
-  .img-fallback svg{width:40px;height:40px;opacity:0.4}
-  .num-badge{position:absolute;top:12px;left:12px;background:rgba(108,99,255,0.85);color:#fff;font-size:11px;font-weight:600;font-family:'Syne',sans-serif;padding:4px 10px;border-radius:20px;letter-spacing:1px}
+        /* Bubble Animation for Floating Buttons */
+        @keyframes bubble-float {
+            0% { transform: translateY(0) scale(0.5); opacity: 0; }
+            50% { opacity: 0.6; }
+            100% { transform: translateY(-40px) scale(1.5); opacity: 0; }
+        }
+        .bubble {
+            position: absolute; width: 10px; height: 10px; background: rgba(255,255,255,0.4);
+            border-radius: 50%; pointer-events: none; animation: bubble-float 2s infinite ease-in;
+        }
 
-  .card-body{padding:20px 22px 22px}
-  .card-title{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.3}
-  .card-desc{font-size:0.88rem;color:var(--muted);line-height:1.6;margin-bottom:20px}
-
-  .btn-visit{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#6c63ff,#9c95ff);color:#fff;font-size:0.85rem;font-weight:500;font-family:'DM Sans',sans-serif;padding:10px 20px;border-radius:30px;text-decoration:none;border:none;cursor:pointer;transition:opacity 0.2s,transform 0.2s;letter-spacing:0.3px}
-  .btn-visit:hover{opacity:0.88;transform:scale(1.03)}
-  .btn-visit svg{width:14px;height:14px}
-
-  .floating-btns{position:fixed;right:24px;bottom:32px;display:flex;flex-direction:column;gap:12px;z-index:999}
-  .fab{width:52px;height:52px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:transform 0.25s,box-shadow 0.25s;box-shadow:0 4px 20px rgba(0,0,0,0.4)}
-  .fab:hover{transform:scale(1.12);box-shadow:0 8px 30px rgba(0,0,0,0.5)}
-  .fab svg{width:20px;height:20px}
-  .fab-home{background:linear-gradient(135deg,#6c63ff,#9c8fff)}
-  .fab-contact{background:linear-gradient(135deg,#ff6584,#ff8fa3)}
-  .fab-top{background:linear-gradient(135deg,#1fa2ff,#12d8fa)}
-
-  .fab-tooltip{position:relative}
-  .fab-tooltip::before{content:attr(data-tip);position:absolute;right:62px;top:50%;transform:translateY(-50%);background:#1e1e2e;color:#f0f0ff;font-size:12px;font-family:'DM Sans',sans-serif;white-space:nowrap;padding:6px 12px;border-radius:8px;border:1px solid var(--border);opacity:0;pointer-events:none;transition:opacity 0.2s}
-  .fab-tooltip:hover::before{opacity:1}
-
-  @media(max-width:600px){
-    .grid{grid-template-columns:1fr;padding:0 16px 100px}
-    h1{font-size:2rem}
-  }
-</style>
+        .text-gradient {
+            background: linear-gradient(135deg, #6c63ff 0%, #9c95ff 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+    </style>
 </head>
 <body>
 
-<div class="hero">
-  <div class="tag">Portfolio</div>
-  <h1>Recent Works</h1>
-  <p class="subtitle">A collection of web projects I've designed and developed — each built with precision and purpose.</p>
-</div>
+    <!-- Custom Cursor -->
+    <div id="cursor"></div>
 
-<div class="grid">
+    <div class="container mx-auto px-6 py-24">
+        <!-- Header Section -->
+        <header class="text-center mb-24" data-aos="fade-down">
+            <a href="index.html" class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-indigo-400 transition mb-6 group">
+                <i data-lucide="arrow-left" class="w-4 h-4 group-hover:-translate-x-1 transition"></i> Back to Main
+            </a>
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tighter">
+                Recent <span class="text-gradient">Works</span>
+            </h1>
+            <p class="text-gray-400 max-w-xl mx-auto text-lg font-light leading-relaxed">
+                A showcase of digital excellence. Har project ko premium quality aur user experience ko dhyan mein rakh kar design kiya gaya hai.
+            </p>
+        </header>
 
-  <div class="card">
-    <div class="card-img">
-      <span class="num-badge">01</span>
-      <img src="image.PNG" alt="1099 Tax Calculator">
-      <div class="img-fallback">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
-        <span style="font-size:12px">1099 Tax Calculator</span>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="card-title">1099 Tax Calculator</div>
-      <div class="card-desc">A smart, user-friendly tax calculator designed for freelancers and self-employed individuals to estimate 1099 income taxes with ease.</div>
-      <a class="btn-visit" href="https://new-1099.vercel.app/" target="_blank" rel="noopener">
-        Visit Website
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-      </a>
-    </div>
-  </div>
+        <!-- Projects Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Project 01 -->
+            <div class="glass-card rounded-[2.5rem] overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                <div class="relative group h-64 overflow-hidden">
+                    <span class="absolute top-6 left-6 z-10 bg-indigo-600 px-4 py-1 rounded-full text-xs font-bold shadow-xl">01</span>
+                    <img src="image.PNG" alt="1099 Tax Calculator" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-3">1099 Tax Calculator</h3>
+                    <p class="text-gray-400 text-sm mb-8 leading-relaxed">Freelancers ke liye ek smart tool jo tax estimation ko boht asaan banata hai.</p>
+                    <a href="https://new-1099.vercel.app/" target="_blank" class="flex items-center justify-between group">
+                        <span class="font-semibold group-hover:text-indigo-400 transition">Visit Website</span>
+                        <i data-lucide="external-link" class="w-5 h-5 text-indigo-500"></i>
+                    </a>
+                </div>
+            </div>
 
-  <div class="card">
-    <div class="card-img">
-      <span class="num-badge">02</span>
-     <img src="image1.PNG" alt="Baby Shop">
-      <div class="img-fallback">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        <span style="font-size:12px">Baby Shop</span>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="card-title">Baby Shop</div>
-      <div class="card-desc">Baby Shopping Simple Landing Page in Polish.</div>
-      <a class="btn-visit" href="https://baby-lac-two.vercel.app/" target="_blank" rel="noopener">
-        Visit Website
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-      </a>
-    </div>
-  </div>
+            <!-- Project 02 -->
+            <div class="glass-card rounded-[2.5rem] overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                <div class="relative group h-64 overflow-hidden">
+                    <span class="absolute top-6 left-6 z-10 bg-pink-600 px-4 py-1 rounded-full text-xs font-bold shadow-xl">02</span>
+                    <img src="image1.PNG" alt="Baby Shop" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-3">Baby Shop</h3>
+                    <p class="text-gray-400 text-sm mb-8 leading-relaxed">Polish language mein design kiya gaya ek soft aur user-friendly e-commerce landing page.</p>
+                    <a href="https://baby-lac-two.vercel.app/" target="_blank" class="flex items-center justify-between group">
+                        <span class="font-semibold group-hover:text-pink-400 transition">Visit Website</span>
+                        <i data-lucide="external-link" class="w-5 h-5 text-pink-500"></i>
+                    </a>
+                </div>
+            </div>
 
-  <div class="card">
-    <div class="card-img">
-      <span class="num-badge">03</span>
-   <img src="image2.PNG" alt="BBI Husfabrik">
-      <div class="img-fallback">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-        <span style="font-size:12px">BBI Husfabrik</span>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="card-title">BBI Husfabrik</div>
-      <div class="card-desc">A Swedish construction and housing company website, crafted to highlight quality craftsmanship and Scandinavian architectural values.</div>
-      <a class="btn-visit" href="https://swedenconstructio.vercel.app/" target="_blank" rel="noopener">
-        Visit Website
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-      </a>
-    </div>
-  </div>
+            <!-- Project 03 -->
+            <div class="glass-card rounded-[2.5rem] overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                <div class="relative group h-64 overflow-hidden">
+                    <span class="absolute top-6 left-6 z-10 bg-blue-600 px-4 py-1 rounded-full text-xs font-bold shadow-xl">03</span>
+                    <img src="image2.PNG" alt="BBI Husfabrik" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-3">BBI Husfabrik</h3>
+                    <p class="text-gray-400 text-sm mb-8 leading-relaxed">Swedish construction business website jo quality aur craftsmanship ko reflect karti hai.</p>
+                    <a href="https://swedenconstructio.vercel.app/" target="_blank" class="flex items-center justify-between group">
+                        <span class="font-semibold group-hover:text-blue-400 transition">Visit Website</span>
+                        <i data-lucide="external-link" class="w-5 h-5 text-blue-500"></i>
+                    </a>
+                </div>
+            </div>
 
-  <div class="card">
-    <div class="card-img">
-      <span class="num-badge">04</span>
-     <img src="image3.PNG" alt="Copenhagen Construction">
-      <div class="img-fallback">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-        <span style="font-size:12px">Copenhagen Construction</span>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="card-title">Copenhagen Construction Company</div>
-      <div class="card-desc">A premium Danish construction company website with a clean, professional design that communicates reliability and high-end service.</div>
-      <a class="btn-visit" href="https://copenhagen-khaki.vercel.app/" target="_blank" rel="noopener">
-        Visit Website
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-      </a>
-    </div>
-  </div>
+            <!-- Project 04 -->
+            <div class="glass-card rounded-[2.5rem] overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                <div class="relative group h-64 overflow-hidden">
+                    <span class="absolute top-6 left-6 z-10 bg-amber-600 px-4 py-1 rounded-full text-xs font-bold shadow-xl">04</span>
+                    <img src="image3.PNG" alt="Copenhagen Construction" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-3">Copenhagen Construction</h3>
+                    <p class="text-gray-400 text-sm mb-8 leading-relaxed">Danish market ke liye ek premium aur professional construction business platform.</p>
+                    <a href="https://copenhagen-khaki.vercel.app/" target="_blank" class="flex items-center justify-between group">
+                        <span class="font-semibold group-hover:text-amber-400 transition">Visit Website</span>
+                        <i data-lucide="external-link" class="w-5 h-5 text-amber-500"></i>
+                    </a>
+                </div>
+            </div>
 
-  <div class="card">
-    <div class="card-img">
-      <span class="num-badge">05</span>
-      <img src="EverGreen.PNG" alt="Elite Green Lawn Services">
-      <div class="img-fallback">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <span style="font-size:12px">Elite Green Lawn Services</span>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="card-title">Elite Green Lawn Services</div>
-      <div class="card-desc">A vibrant, nature-inspired website for a premium lawn care business — showcasing services with a fresh, professional green aesthetic.</div>
-      <a class="btn-visit" href="https://elite-green-website.vercel.app/" target="_blank" rel="noopener">
-        Visit Website
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-      </a>
-    </div>
-  </div>
+            <!-- Project 05 -->
+            <div class="glass-card rounded-[2.5rem] overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                <div class="relative group h-64 overflow-hidden">
+                    <span class="absolute top-6 left-6 z-10 bg-green-600 px-4 py-1 rounded-full text-xs font-bold shadow-xl">05</span>
+                    <img src="EverGreen.PNG" alt="Elite Green Lawn" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-3">Elite Green Lawn</h3>
+                    <p class="text-gray-400 text-sm mb-8 leading-relaxed">Nature-inspired design jo lawn care services ko modern style mein present karta hai.</p>
+                    <a href="https://elite-green-website.vercel.app/" target="_blank" class="flex items-center justify-between group">
+                        <span class="font-semibold group-hover:text-green-400 transition">Visit Website</span>
+                        <i data-lucide="external-link" class="w-5 h-5 text-green-500"></i>
+                    </a>
+                </div>
+            </div>
 
-  <div class="card">
-    <div class="card-img">
-      <span class="num-badge">06</span>
- <img src="image5.PNG" alt="SikaInstall HVAC">
-      <div class="img-fallback">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-        <span style="font-size:12px">SikaInstall HVAC Services</span>
-      </div>
+            <!-- Project 06 -->
+            <div class="glass-card rounded-[2.5rem] overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                <div class="relative group h-64 overflow-hidden">
+                    <span class="absolute top-6 left-6 z-10 bg-cyan-600 px-4 py-1 rounded-full text-xs font-bold shadow-xl">06</span>
+                    <img src="image5.PNG" alt="SikaInstall HVAC" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-3">SikaInstall HVAC</h3>
+                    <p class="text-gray-400 text-sm mb-8 leading-relaxed">Romanian HVAC industry ke liye trust-based conversion focused design.</p>
+                    <a href="https://sika-install-montaj-aer-conditionat.vercel.app/" target="_blank" class="flex items-center justify-between group">
+                        <span class="font-semibold group-hover:text-cyan-400 transition">Visit Website</span>
+                        <i data-lucide="external-link" class="w-5 h-5 text-cyan-500"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
     </div>
-    <div class="card-body">
-      <div class="card-title">SikaInstall HVAC Services</div>
-      <div class="card-desc">A professional HVAC installation and air conditioning service website designed for a Romanian market — clean, trustworthy, and conversion-focused.</div>
-      <a class="btn-visit" href="https://sika-install-montaj-aer-conditionat.vercel.app/" target="_blank" rel="noopener">
-        Visit Website
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-      </a>
+
+    <!-- Floating Buttons with Bubble Animation -->
+    <div class="fixed bottom-10 right-10 flex flex-col gap-5 z-[100]">
+        <a href="index.html" class="w-14 h-14 bg-indigo-600 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition relative">
+            <i data-lucide="home" class="text-white w-6 h-6"></i>
+            <!-- Bubbles -->
+            <div class="bubble" style="left: 10px; animation-delay: 0s;"></div>
+            <div class="bubble" style="right: 10px; animation-delay: 1s;"></div>
+        </a>
+        <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="w-14 h-14 bg-gray-800 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition">
+            <i data-lucide="chevron-up" class="text-white w-6 h-6"></i>
+        </button>
     </div>
-  </div>
 
-</div>
+    <!-- Footer -->
+    <footer class="py-20 text-center border-top border-white/5">
+        <p class="text-gray-500 text-sm font-medium">© 2026 SK Baloch — Premium Craftsmanship in Web</p>
+    </footer>
 
-<!-- FLOATING BUTTONS-->
-<div class="floating-btns">
-  <a class="fab fab-home fab-tooltip" href="https://sk-baloch.vercel.app/" data-tip="Home" title="Home">
-    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22" stroke="#fff"/></svg>
-  </a>
-  <a class="fab fab-contact fab-tooltip" href="maleto:itxskbaloch4@gmail.com" data-tip="Contact" title="Contact">
-    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-  </a>
-  <button class="fab fab-top fab-tooltip" data-tip="Back to top" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
-  </button>
-</div>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        lucide.createIcons();
 
+        // Magnetic Cursor Logic
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // Expand cursor on links
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.style.transform = 'scale(2.5)');
+            el.addEventListener('mouseleave', () => cursor.style.transform = 'scale(1)');
+        });
+    </script>
 </body>
 </html>
