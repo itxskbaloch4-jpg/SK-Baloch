@@ -1,321 +1,173 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SK Baloch | Premium Web Development</title>
-    <link rel="icon" type="image/png" href="LOGO WEB.png">
-    
-    <!-- Fonts & Libraries -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    
-    <!-- Animation Engines -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SK Baloch | Premium Web Development</title>
 
-    <style>
-        :root { --bg: #050505; --text: #fafafa; --accent: #00d084; --glass: rgba(255, 255, 255, 0.03); }
-        .light-mode { --bg: #f5f5f5; --text: #1a1a1a; --glass: rgba(0, 0, 0, 0.03); }
+<link rel="icon" type="image/png" href="LOGO WEB.png">
 
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); overflow-x: hidden; transition: background 0.5s ease; }
-        
-        /* Preloader */
-        #preloader { position: fixed; inset: 0; z-index: 10000; background: #050505; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-        #loader-perc { font-size: 5vw; font-weight: 800; color: var(--accent); }
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-        /* Premium Cursor */
-        #cursor { width: 12px; height: 12px; background: var(--accent); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; mix-blend-mode: difference; transition: transform 0.2s ease; }
-        #cursor-follower { width: 40px; height: 40px; border: 1px solid var(--accent); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transition: all 0.15s ease-out; }
-        .cursor-active #cursor { transform: scale(4); opacity: 0.2; }
-        .cursor-active #cursor-follower { transform: scale(1.5); background: var(--accent); opacity: 0.1; }
-        #cursor-text { position: fixed; pointer-events: none; z-index: 10000; font-size: 10px; font-weight: bold; color: black; display: none; text-transform: uppercase; }
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
 
-        /* Glassmorphism & Effects */
-        .glass { background: var(--glass); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); }
-        .text-gradient { background: linear-gradient(to right, #00d084, #00c3ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        
-        /* Smooth Sections */
-        section { transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
-        /* Magnetic Button Wrapper */
-        .magnetic-wrap { display: inline-block; }
+<style>
+:root {
+  --bg: #050505;
+  --text: #fafafa;
+  --accent: #00d084;
+}
 
-        /* Noise Texture */
-        .noise { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.03; z-index: 9990; background-image: url('https://grainy-gradients.vercel.app/noise.svg'); }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
 
-        /* Floating Buttons */
-        .floating-btn { position: fixed; right: 20px; width: 50px; height: 50px; border-radius: 50%; display: flex; items-center; justify-content: center; z-index: 999; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-        .btn-whatsapp { bottom: 90px; background-color: #25D366; color: white; }
-        .btn-gmail { bottom: 30px; background-color: #EA4335; color: white; }
-        .floating-btn:hover { transform: scale(1.1) translateY(-5px); }
-    </style>
+/* Glass */
+.glass {
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(10px);
+}
+
+/* Gradient text */
+.text-gradient {
+  background: linear-gradient(to right, #00d084, #00c3ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Mobile fix */
+@media(max-width:768px){
+  h1 { line-height: 1.2 !important; }
+}
+</style>
 </head>
- 
-<body class="antialiased">
-    <div class="noise"></div>
+
+<body>
+
+<!-- NAV -->
+<nav class="fixed top-0 w-full z-50 glass py-4">
+  <div class="container mx-auto px-4 flex justify-between items-center">
     
-    <!-- Preloader -->
-    <div id="preloader">
-        <img src="LOGO WEB.png" class="w-20 mb-4 animate-pulse" alt="Logo">
-        <div id="loader-perc">0%</div>
+    <div class="flex items-center gap-2">
+      <img src="LOGO WEB.png" class="w-8 h-8">
+      <span class="font-bold text-lg">SK BALOCH</span>
     </div>
 
-    <!-- Custom Cursor -->
-    <div id="cursor" class="hidden md:block"></div>
-    <div id="cursor-follower" class="hidden md:block"></div>
-    <div id="cursor-text">View</div>
+    <div class="hidden md:flex gap-6 text-sm">
+      <a href="#portfolio">Portfolio</a>
+      <a href="index2.html">Work</a>
+      <a href="mailto:itxskbaloch4@gmail.com" class="bg-emerald-500 px-4 py-2 rounded-full text-black">Contact</a>
+    </div>
 
-    <!-- Floating Action Buttons -->
-    <a href="https://wa.me/923281630114" target="_blank" class="floating-btn btn-whatsapp" title="Chat on WhatsApp">
-        <i data-lucide="message-circle"></i>
-    </a>
-    <a href="mailto:itxskbaloch4@gmail.com" class="floating-btn btn-gmail" title="Send Email">
-        <i data-lucide="mail"></i>
-    </a>
+    <button id="menu-btn" class="md:hidden text-white">☰</button>
+  </div>
+</nav>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass py-4">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <div class="flex items-center gap-2 group cursor-pointer">
-                <img src="LOGO WEB.png" class="w-10 h-10 object-contain transition-transform group-hover:rotate-12" alt="Logo">
-                <span class="font-bold text-xl tracking-tighter">SK BALOCH</span>
-            </div>
-            
-            <div class="flex items-center gap-4">
-                <button id="theme-toggle" class="p-2 rounded-full glass hover:scale-110 transition-all active:rotate-90">
-                    <i data-lucide="moon" id="theme-icon" class="w-5 h-5"></i>
-                </button>
+<!-- HERO -->
+<section class="min-h-screen flex items-center pt-24 pb-10">
+  <div class="container mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+    
+    <div>
+      <h1 class="text-4xl md:text-7xl font-extrabold mb-6">
+        Elevating <span class="text-gradient">Digital</span> Experiences
+      </h1>
 
-                <div class="hidden md:flex gap-8 text-sm font-medium items-center">
-                    <a href="#portfolio" class="hover:text-emerald-400 transition-all relative overflow-hidden group">
-                        Portfolio
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-500 transition-all group-hover:w-full"></span>
-                    </a>
-                    <a href="index2.html" class="hover:text-emerald-400 transition-all">Recent Work</a>
-                    <div class="magnetic-wrap">
-                        <a href="mailto:itxskbaloch4@gmail.com" class="px-6 py-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500 hover:text-black transition-all">Contact</a>
-                    </div>
-                </div>
+      <p class="text-gray-400 mb-6">
+        High-converting websites for HVAC, construction & startups.
+      </p>
 
-                <button class="md:hidden" id="menu-btn"><i data-lucide="menu"></i></button>
-            </div>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="#" class="bg-emerald-500 text-black px-6 py-3 rounded-full text-center font-bold w-full sm:w-auto">
+          Start Project
+        </a>
+        <a href="#portfolio" class="glass px-6 py-3 rounded-full text-center w-full sm:w-auto">
+          Portfolio
+        </a>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4">
+      <div class="glass p-6 rounded-xl text-center">
+        <h2 class="text-3xl text-emerald-400 font-bold">50+</h2>
+        <p class="text-gray-400 text-sm">Projects</p>
+      </div>
+
+      <div class="glass p-6 rounded-xl text-center">
+        <h2 class="text-3xl text-emerald-400 font-bold">100%</h2>
+        <p class="text-gray-400 text-sm">Success</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="py-16">
+  <div class="container mx-auto px-4">
+    
+    <h2 class="text-3xl md:text-5xl font-bold mb-10">
+      Selected Works
+    </h2>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <!-- CARD -->
+      <div class="glass rounded-xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d"
+             class="w-full h-56 object-cover">
+        <div class="p-4">
+          <h3 class="font-bold">HVAC Website</h3>
+          <p class="text-gray-400 text-sm">Lead generation</p>
         </div>
-    </nav>
+      </div>
 
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,208,132,0.1),transparent_50%)]"></div>
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
-            <div>
-                <span class="reveal-text inline-block px-4 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold tracking-widest mb-6">PREMIUM WEB PARTNER</span>
-                <h1 id="hero-title" class="text-5xl md:text-8xl font-extrabold leading-tight mb-8">
-                    Elevating <span class="text-gradient">Digital</span> Experiences.
-                </h1>
-                <p class="text-gray-400 text-base md:text-lg max-w-lg mb-10 leading-relaxed opacity-0" id="hero-desc">
-                    Modern high-converting websites for HVAC, construction, and luxury startups across Europe and the USA. Engineered for speed and prestige.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 opacity-0" id="hero-btns">
-                    <div class="magnetic-wrap">
-                        <a href="mailto:itxskbaloch4@gmail.com" class="px-8 py-4 bg-emerald-500 text-black text-center font-bold rounded-full block hover:shadow-[0_0_30px_rgba(0,208,132,0.4)] transition-shadow">Start Your Project</a>
-                    </div>
-                    <div class="magnetic-wrap">
-                        <a href="#portfolio" class="px-8 py-4 glass text-center font-bold rounded-full block hover:bg-white/10 transition-colors">View Portfolio</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="grid grid-cols-2 gap-4">
-                <div class="stat-card glass p-8 rounded-3xl border-emerald-500/10 transition-transform duration-500">
-                    <h2 class="text-4xl font-bold text-emerald-400 mb-2 counter" data-target="50">0</h2>
-                    <p class="text-gray-400 text-sm">Global Projects</p>
-                </div>
-                <div class="stat-card glass p-8 rounded-3xl mt-12 border-emerald-500/10">
-                    <h2 class="text-4xl font-bold text-emerald-400 mb-2 counter" data-target="100">0</h2>
-                    <p class="text-gray-400 text-sm">Success Rate %</p>
-                </div>
-            </div>
+      <div class="glass rounded-xl overflow-hidden">
+        <img src="image7.jpg" class="w-full h-56 object-cover">
+        <div class="p-4">
+          <h3 class="font-bold">Roofing</h3>
+          <p class="text-gray-400 text-sm">Construction UI</p>
         </div>
-    </section>
+      </div>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="py-20 md:py-32">
-        <div class="container mx-auto px-6">
-            <div class="mb-20">
-                <h2 class="text-4xl md:text-6xl font-bold mb-4 reveal-text">Selected Works</h2>
-                <div class="h-1 w-20 bg-emerald-500 mb-8"></div>
-                <!-- Premium Bio Paragraph Added Here -->
-                <p class="text-gray-400 text-lg max-w-4xl leading-relaxed">
-                    SK Baloch is a premium business website developer dedicated to crafting high-performance, visually striking digital experiences. With a strong focus on conversion-driven design, he specializes in building modern websites for industries such as HVAC, construction, and luxury startups. Every project is approached with precision, combining aesthetics with strategy to ensure maximum impact and credibility. His work reflects a deep understanding of user behavior, branding, and performance optimization. By blending cutting-edge design trends with clean development practices, SK Baloch delivers websites that not only look exceptional but also drive real business growth. Trusted by clients across Europe and the USA, he is committed to delivering excellence, speed, and a truly premium digital presence.
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
-                <!-- Card 1 -->
-                <a href="index2.html" class="portfolio-card group block relative glass rounded-[2rem] overflow-hidden">
-                    <div class="overflow-hidden h-80 relative">
-                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800" class="w-full h-full object-cover transition-transform duration-700" alt="HVAC">
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <span class="bg-white text-black px-6 py-2 rounded-full font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform">View Project</span>
-                        </div>
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-emerald-400 transition-colors">HVAC Masterclass</h3>
-                        <p class="text-gray-400 text-sm mb-4">Lead generation platform with premium UI architecture.</p>
-                        <i data-lucide="arrow-up-right" class="text-emerald-400"></i>
-                    </div>
-                </a>
-
-                <!-- Card 2 -->
-                <a href="index2.html" class="portfolio-card group block relative glass rounded-[2rem] overflow-hidden">
-                    <div class="overflow-hidden h-80 relative">
-                        <img src="image7.jpg" class="w-full h-full object-cover transition-transform duration-700" alt="Roofing">
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <span class="bg-white text-black px-6 py-2 rounded-full font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform">View Project</span>
-                        </div>
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-emerald-400 transition-colors">Roof Construction</h3>
-                        <p class="text-gray-400 text-sm mb-4">High Class lead Generation Roof Construction Website.</p>
-                        <i data-lucide="arrow-up-right" class="text-emerald-400"></i>
-                    </div>
-                </a>
-
-                <!-- Card 3 -->
-                <a href="index2.html" class="portfolio-card group block relative glass rounded-[2rem] overflow-hidden">
-                    <div class="overflow-hidden h-80 relative">
-                        <img src="image8.jpg" class="w-full h-full object-cover transition-transform duration-700" alt="Small Business">
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <span class="bg-white text-black px-6 py-2 rounded-full font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform">View Project</span>
-                        </div>
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-emerald-400 transition-colors">Small Business</h3>
-                        <p class="text-gray-400 text-sm mb-4">High Class lead Generation Small Business Website.</p>
-                        <i data-lucide="arrow-up-right" class="text-emerald-400"></i>
-                    </div>
-                </a>
-            </div>
+      <div class="glass rounded-xl overflow-hidden">
+        <img src="image8.jpg" class="w-full h-56 object-cover">
+        <div class="p-4">
+          <h3 class="font-bold">Business</h3>
+          <p class="text-gray-400 text-sm">Premium site</p>
         </div>
-    </section>
+      </div>
 
-    <!-- Footer -->
-    <footer class="py-20 border-t border-white/10 glass">
-        <div class="container mx-auto px-6 text-center">
-            <img src="LOGO WEB.png" class="w-16 h-16 mx-auto mb-6" alt="Logo">
-            <h2 class="text-3xl font-bold mb-8">Ready to start your next project?</h2>
-            <div class="magnetic-wrap">
-                <a href="mailto:itxskbaloch4@gmail.com" class="text-5xl md:text-7xl font-extrabold text-gradient hover:opacity-80 transition-opacity">itxskbaloch4@gmail.com</a>
-            </div>
-            <p class="text-gray-500 mt-12">© 2026 SK Baloch. All rights reserved.</p>
-        </div>
-    </footer>
+    </div>
 
-    <!-- Scripts -->
-    <script>
-        // 1. Initialize Smooth Scroll (Lenis)
-        const lenis = new Lenis();
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
+  </div>
+</section>
 
-        // 2. Preloader Logic
-        let count = 0;
-        const loaderPerc = document.getElementById('loader-perc');
-        const loadInterval = setInterval(() => {
-            count += Math.floor(Math.random() * 10) + 1;
-            if(count >= 100) {
-                count = 100;
-                clearInterval(loadInterval);
-                gsap.to("#preloader", { yPercent: -100, duration: 1, ease: "expo.inOut", delay: 0.5, onComplete: startHeroAnimations });
-            }
-            loaderPerc.innerText = count + "%";
-        }, 50);
+<!-- FOOTER -->
+<footer class="py-12 text-center border-t border-white/10">
+  <h2 class="text-2xl mb-4">Start your project</h2>
+  <a href="mailto:itxskbaloch4@gmail.com"
+     class="text-3xl text-gradient font-bold">
+     itxskbaloch4@gmail.com
+  </a>
 
-        // 3. Hero Animations
-        function startHeroAnimations() {
-            lucide.createIcons();
-            const tl = gsap.timeline();
-            tl.from("#hero-title", { y: 100, opacity: 0, duration: 1.2, ease: "power4.out" })
-              .to("#hero-desc", { opacity: 1, y: 0, duration: 0.8 }, "-=0.8")
-              .to("#hero-btns", { opacity: 1, y: 0, duration: 0.8 }, "-=0.6");
-            
-            // Stats Countup
-            document.querySelectorAll('.counter').forEach(c => {
-                const target = +c.dataset.target;
-                gsap.to(c, {
-                    innerText: target,
-                    duration: 2,
-                    snap: { innerText: 1 },
-                    scrollTrigger: { trigger: c, start: "top 90%" }
-                });
-            });
-        }
+  <p class="text-gray-500 mt-6 text-sm">
+    © 2026 SK Baloch
+  </p>
+</footer>
 
-        // 4. Custom Cursor Logic
-        const cursor = document.getElementById('cursor');
-        const follower = document.getElementById('cursor-follower');
-        const cText = document.getElementById('cursor-text');
+<!-- SIMPLE JS -->
+<script>
+document.getElementById("menu-btn").onclick = () => {
+  alert("Add mobile menu here");
+}
+</script>
 
-        window.addEventListener('mousemove', (e) => {
-            gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0 });
-            gsap.to(follower, { x: e.clientX - 14, y: e.clientY - 14, duration: 0.15 });
-            gsap.to(cText, { x: e.clientX + 15, y: e.clientY + 15, duration: 0.1 });
-        });
-
-        document.querySelectorAll('a, button, .portfolio-card').forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                document.body.classList.add('cursor-active');
-                if(el.classList.contains('portfolio-card')) {
-                    cText.style.display = 'block';
-                }
-            });
-            el.addEventListener('mouseleave', () => {
-                document.body.classList.remove('cursor-active');
-                cText.style.display = 'none';
-            });
-        });
-
-        // 5. Magnetic Buttons
-        document.querySelectorAll('.magnetic-wrap').forEach(wrap => {
-            wrap.addEventListener('mousemove', (e) => {
-                const rect = wrap.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width/2;
-                const y = e.clientY - rect.top - rect.height/2;
-                gsap.to(wrap.querySelector('a, button'), { x: x * 0.5, y: y * 0.5, duration: 0.3 });
-            });
-            wrap.addEventListener('mouseleave', () => {
-                gsap.to(wrap.querySelector('a, button'), { x: 0, y: 0, duration: 0.5, ease: "elastic.out(1, 0.3)" });
-            });
-        });
-
-        // 6. Portfolio 3D Tilt
-        document.querySelectorAll('.portfolio-card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = (e.clientX - rect.left) / rect.width - 0.5;
-                const y = (e.clientY - rect.top) / rect.height - 0.5;
-                gsap.to(card, { rotationY: x * 10, rotationX: -y * 10, transformPerspective: 1000, duration: 0.4 });
-            });
-            card.addEventListener('mouseleave', () => {
-                gsap.to(card, { rotationY: 0, rotationX: 0, duration: 0.5 });
-            });
-        });
-
-        // 7. Theme Toggle
-        const themeBtn = document.getElementById('theme-toggle');
-        themeBtn.addEventListener('click', () => {
-            document.body.classList.toggle('light-mode');
-            const isLight = document.body.classList.contains('light-mode');
-            document.getElementById('theme-icon').setAttribute('data-lucide', isLight ? 'sun' : 'moon');
-            lucide.createIcons();
-        });
-    </script>
 </body>
 </html>
