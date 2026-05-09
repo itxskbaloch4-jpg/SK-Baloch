@@ -6,13 +6,11 @@
     <title>SK Baloch | Premium Web Development</title>
     <link rel="icon" type="image/png" href="LOGO WEB.png">
     
-    <!-- Fonts & Libraries -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     
-    <!-- Animation Engines -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
@@ -24,10 +22,6 @@
 
         body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); overflow-x: hidden; width: 100%; transition: background 0.5s ease; }
         
-        /* Preloader */
-        #preloader { position: fixed; inset: 0; z-index: 10000; background: #050505; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-        #loader-perc { font-size: 12vw; font-weight: 800; color: var(--accent); }
-
         /* Premium Cursor */
         #cursor { width: 12px; height: 12px; background: var(--accent); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; mix-blend-mode: difference; transition: transform 0.2s ease; }
         #cursor-follower { width: 40px; height: 40px; border: 1px solid var(--accent); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transition: all 0.15s ease-out; }
@@ -56,19 +50,11 @@
 
 <body class="antialiased">
     <div class="noise"></div>
-    
-    <!-- Preloader -->
-    <div id="preloader">
-        <img src="LOGO WEB.png" class="w-20 mb-4 animate-pulse" alt="Logo">
-        <div id="loader-perc">0%</div>
-    </div>
 
-    <!-- Custom Cursor -->
     <div id="cursor" class="hidden md:block"></div>
     <div id="cursor-follower" class="hidden md:block"></div>
     <div id="cursor-text">View</div>
 
-    <!-- Floating Action Buttons -->
     <a href="https://wa.me/923281630114" target="_blank" class="floating-btn btn-whatsapp" title="Chat on WhatsApp">
         <i data-lucide="message-circle"></i>
     </a>
@@ -76,7 +62,6 @@
         <i data-lucide="mail"></i>
     </a>
 
-    <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 glass py-4">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center gap-2 group cursor-pointer">
@@ -107,7 +92,6 @@
         </div>
     </nav>
 
-    <!-- Mobile Sidebar -->
     <div id="mobile-menu" class="fixed inset-0 z-[60] bg-[#050505] p-10 md:hidden flex flex-col justify-center gap-8">
         <button id="close-menu" class="absolute top-8 right-8 p-2 glass rounded-full"><i data-lucide="x"></i></button>
         <a href="#portfolio" class="text-4xl font-bold mobile-link">Portfolio</a>
@@ -115,7 +99,6 @@
         <a href="mailto:itxskbaloch4@gmail.com" class="text-4xl font-bold text-emerald-400">Contact</a>
     </div>
 
-    <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,208,132,0.1),transparent_50%)]"></div>
         <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
@@ -124,10 +107,10 @@
                 <h1 id="hero-title" class="text-4xl sm:text-5xl md:text-8xl font-extrabold leading-[1.1] mb-8">
                     Elevating <span class="text-gradient">Digital</span> Experiences.
                 </h1>
-                <p class="text-gray-400 text-base md:text-lg max-w-lg mb-10 leading-relaxed opacity-0" id="hero-desc">
+                <p class="text-gray-400 text-base md:text-lg max-w-lg mb-10 leading-relaxed" id="hero-desc">
                     Modern high-converting websites for HVAC, construction, and luxury startups across Europe and the USA. Engineered for speed and prestige.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 opacity-0" id="hero-btns">
+                <div class="flex flex-col sm:flex-row gap-4" id="hero-btns">
                     <div class="magnetic-wrap">
                         <a href="mailto:itxskbaloch4@gmail.com" class="px-8 py-4 bg-emerald-500 text-black text-center font-bold rounded-full block hover:shadow-[0_0_30px_rgba(0,208,132,0.4)] transition-shadow">Start Project</a>
                     </div>
@@ -150,7 +133,6 @@
         </div>
     </section>
 
-    <!-- Portfolio Section -->
     <section id="portfolio" class="py-20 md:py-32">
         <div class="container mx-auto px-6">
             <div class="mb-16 md:mb-20">
@@ -162,7 +144,6 @@
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
-                <!-- Card 1 -->
                 <a href="index2.html" class="portfolio-card group block relative glass rounded-[2rem] overflow-hidden">
                     <div class="overflow-hidden h-64 md:h-80 relative">
                         <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800" class="w-full h-full object-cover transition-transform duration-700" alt="HVAC">
@@ -177,10 +158,9 @@
                     </div>
                 </a>
 
-                <!-- Card 2 -->
                 <a href="index2.html" class="portfolio-card group block relative glass rounded-[2rem] overflow-hidden">
                     <div class="overflow-hidden h-64 md:h-80 relative">
-                        <img src="image7.jpg" class="w-full h-full object-cover transition-transform duration-700" alt="Roofing">
+                        <img src="https://images.unsplash.com/photo-1635424710928-0544e851b94a?auto=format&fit=crop&w=800" class="w-full h-full object-cover transition-transform duration-700" alt="Roofing">
                         <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                             <span class="bg-white text-black px-6 py-2 rounded-full font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform">View Project</span>
                         </div>
@@ -192,7 +172,6 @@
                     </div>
                 </a>
 
-                <!-- Card 3 -->
                 <a href="index2.html" class="portfolio-card group block relative glass rounded-[2rem] overflow-hidden">
                     <div class="overflow-hidden h-64 md:h-80 relative">
                         <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800" class="w-full h-full object-cover transition-transform duration-700" alt="Small Business">
@@ -210,7 +189,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="py-20 border-t border-white/10 glass">
         <div class="container mx-auto px-6 text-center">
             <img src="LOGO WEB.png" class="w-16 h-16 mx-auto mb-6" alt="Logo">
@@ -224,7 +202,6 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script>
         // Initialize Icons first
         lucide.createIcons();
@@ -237,18 +214,10 @@
         }
         requestAnimationFrame(raf);
 
-        // 2. Preloader Logic
-        let count = 0;
-        const loaderPerc = document.getElementById('loader-perc');
-        const loadInterval = setInterval(() => {
-            count += Math.floor(Math.random() * 10) + 1;
-            if(count >= 100) {
-                count = 100;
-                clearInterval(loadInterval);
-                gsap.to("#preloader", { yPercent: -100, duration: 1, ease: "expo.inOut", delay: 0.5, onComplete: startHeroAnimations });
-            }
-            loaderPerc.innerText = count + "%";
-        }, 50);
+        // 2. Load Website Animations Immediately
+        window.addEventListener('load', () => {
+            startHeroAnimations();
+        });
 
         // 3. Hero Animations
         function startHeroAnimations() {
