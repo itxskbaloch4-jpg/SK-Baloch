@@ -47,6 +47,12 @@
 
         /* Noise Texture */
         .noise { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.03; z-index: 9990; background-image: url('https://grainy-gradients.vercel.app/noise.svg'); }
+
+        /* Floating Buttons */
+        .floating-btn { position: fixed; right: 20px; width: 50px; height: 50px; border-radius: 50%; display: flex; items-center; justify-content: center; z-index: 999; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .btn-whatsapp { bottom: 90px; background-color: #25D366; color: white; }
+        .btn-gmail { bottom: 30px; background-color: #EA4335; color: white; }
+        .floating-btn:hover { transform: scale(1.1) translateY(-5px); }
     </style>
 </head>
  
@@ -63,6 +69,14 @@
     <div id="cursor" class="hidden md:block"></div>
     <div id="cursor-follower" class="hidden md:block"></div>
     <div id="cursor-text">View</div>
+
+    <!-- Floating Action Buttons -->
+    <a href="https://wa.me/923281630114" target="_blank" class="floating-btn btn-whatsapp" title="Chat on WhatsApp">
+        <i data-lucide="message-circle"></i>
+    </a>
+    <a href="mailto:itxskbaloch4@gmail.com" class="floating-btn btn-gmail" title="Send Email">
+        <i data-lucide="mail"></i>
+    </a>
 
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 glass py-4">
@@ -133,7 +147,11 @@
         <div class="container mx-auto px-6">
             <div class="mb-20">
                 <h2 class="text-4xl md:text-6xl font-bold mb-4 reveal-text">Selected Works</h2>
-                <div class="h-1 w-20 bg-emerald-500"></div>
+                <div class="h-1 w-20 bg-emerald-500 mb-8"></div>
+                <!-- Premium Bio Paragraph Added Here -->
+                <p class="text-gray-400 text-lg max-w-4xl leading-relaxed">
+                    SK Baloch is a premium business website developer dedicated to crafting high-performance, visually striking digital experiences. With a strong focus on conversion-driven design, he specializes in building modern websites for industries such as HVAC, construction, and luxury startups. Every project is approached with precision, combining aesthetics with strategy to ensure maximum impact and credibility. His work reflects a deep understanding of user behavior, branding, and performance optimization. By blending cutting-edge design trends with clean development practices, SK Baloch delivers websites that not only look exceptional but also drive real business growth. Trusted by clients across Europe and the USA, he is committed to delivering excellence, speed, and a truly premium digital presence.
+                </p>
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
