@@ -6,7 +6,6 @@
     <title>SK Baloch | Premium Web Development</title>
     <link rel="icon" type="image/png" href="LOGO WEB.png">
     
-    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -14,31 +13,34 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #fafafa; overflow-x: hidden; }
+        :root { --bg: #050505; --text: #fafafa; --glass-bg: rgba(255, 255, 255, 0.03); --glass-border: rgba(255, 255, 255, 0.08); }
+        .light-mode { --bg: #f5f5f5; --text: #1a1a1a; --glass-bg: rgba(0, 0, 0, 0.03); --glass-border: rgba(0, 0, 0, 0.08); }
+
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); overflow-x: hidden; transition: background 0.3s ease, color 0.3s ease; }
         
-        /* Custom Cursor - Hidden on Touch Devices */
+        /* Cursor & Trail */
         @media (hover: hover) and (pointer: fine) {
             body { cursor: none; }
-            #cursor { width: 20px; height: 20px; border: 2px solid #00d084; border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transition: transform 0.1s ease; }
-            #cursor-blur { width: 150px; height: 150px; background: rgba(0, 208, 132, 0.15); filter: blur(50px); position: fixed; pointer-events: none; z-index: 9998; border-radius: 50%; }
+            #cursor { width: 20px; height: 20px; border: 2px solid #00d084; border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; }
+            .trail { width: 6px; height: 6px; background: #00d084; border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transition: transform 0.1s ease-out; opacity: 0.5; }
+            #cursor-blur { width: 150px; height: 150px; background: rgba(0, 208, 132, 0.15); filter: blur(50px); position: fixed; pointer-events: none; z-index: 9997; border-radius: 50%; }
         }
 
         .text-gradient { background: linear-gradient(to right, #00d084, #00c3ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
-        /* Bubble Animation */
-        @keyframes bubble-up {
-            0% { transform: translateY(0) scale(0.5); opacity: 0; }
-            50% { opacity: 0.5; }
-            100% { transform: translateY(-50px) scale(1.2); opacity: 0; }
+        /* Liquid Animation for Floating Buttons */
+        @keyframes liquid-glow {
+            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
         }
-        .bubble { position: absolute; background: rgba(255, 255, 255, 0.3); border-radius: 50%; pointer-events: none; animation: bubble-up 2s infinite ease-out; }
+        .btn-liquid { animation: liquid-glow 3s infinite ease-in-out; }
 
         /* Glassmorphism */
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .glass { background: var(--glass-bg); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); }
         
         .hover-card:hover { transform: translateY(-10px); border-color: #00d084; box-shadow: 0 10px 40px -10px rgba(0, 208, 132, 0.2); }
 
-        /* Mobile Menu Transition */
         #mobile-menu { transition: all 0.3s ease-in-out; transform: translateY(-100%); opacity: 0; pointer-events: none; }
         #mobile-menu.active { transform: translateY(0); opacity: 1; pointer-events: auto; }
     </style>
@@ -49,7 +51,6 @@
     <div id="cursor" class="hidden md:block"></div>
     <div id="cursor-blur" class="hidden md:block"></div>
 
-    <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 glass py-4">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center gap-2">
@@ -57,21 +58,24 @@
                 <span class="font-bold text-xl tracking-tighter">SK BALOCH</span>
             </div>
             
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex gap-8 text-sm font-medium text-gray-400 items-center">
-                <a href="#portfolio" class="hover:text-white transition">Portfolio</a>
-                <a href="index2.html" class="hover:text-white transition">Recent Work</a>
-                <a href="mailto:itxskbaloch4@gmail.com" class="text-white bg-white/10 px-6 py-2 rounded-full border border-white/20 hover:bg-white hover:text-black transition">Contact</a>
-            </div>
+            <div class="flex items-center gap-4">
+                <button id="theme-toggle" class="p-2 rounded-full glass hover:bg-emerald-500/10 transition">
+                    <i data-lucide="moon" id="theme-icon" class="w-5 h-5"></i>
+                </button>
 
-            <!-- Mobile Toggle -->
-            <button class="md:hidden text-white" id="menu-btn">
-                <i data-lucide="menu"></i>
-            </button>
+                <div class="hidden md:flex gap-8 text-sm font-medium text-gray-400 items-center">
+                    <a href="#portfolio" class="hover:text-emerald-400 transition">Portfolio</a>
+                    <a href="index2.html" class="hover:text-emerald-400 transition">Recent Work</a>
+                    <a href="mailto:itxskbaloch4@gmail.com" class="px-6 py-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500 hover:text-black transition">Contact</a>
+                </div>
+
+                <button class="md:hidden" id="menu-btn">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
-    <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="fixed inset-0 z-40 bg-black/95 pt-24 px-6 md:hidden">
         <div class="flex flex-col gap-8 text-2xl font-bold">
             <a href="#portfolio" class="mobile-link">Portfolio</a>
@@ -80,7 +84,6 @@
         </div>
     </div>
 
-    <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,208,132,0.1),transparent_50%)]"></div>
         <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
@@ -94,7 +97,7 @@
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
                     <a href="mailto:itxskbaloch4@gmail.com" class="px-8 py-4 bg-emerald-500 text-black text-center font-bold rounded-full hover:scale-105 transition shadow-lg shadow-emerald-500/20">Start Your Project</a>
-                    <a href="#portfolio" class="px-8 py-4 glass text-white text-center font-bold rounded-full hover:bg-white/10 transition">View Portfolio</a>
+                    <a href="#portfolio" class="px-8 py-4 glass text-center font-bold rounded-full hover:bg-emerald-500/10 transition">View Portfolio</a>
                 </div>
             </div>
             
@@ -111,7 +114,6 @@
         </div>
     </section>
 
-    <!-- Portfolio Section -->
     <section id="portfolio" class="py-20 md:py-32">
         <div class="container mx-auto px-6">
             <div class="mb-16 md:mb-20" data-aos="fade-up">
@@ -119,7 +121,6 @@
                 <div class="h-1 w-20 bg-emerald-500"></div>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
                 <a href="index2.html" class="group block relative overflow-hidden rounded-3xl glass hover-card transition-all duration-500" data-aos="fade-up">
                     <div class="overflow-hidden h-64 md:h-80">
                         <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="HVAC">
@@ -130,8 +131,6 @@
                         <i data-lucide="arrow-up-right" class="text-emerald-400"></i>
                     </div>
                 </a>
-
-                <!-- Project 2 -->
                 <a href="index2.html" class="group block relative overflow-hidden rounded-3xl glass hover-card transition-all duration-500" data-aos="fade-up" data-aos-delay="100">
                     <div class="overflow-hidden h-64 md:h-80">
                         <img src="image7.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Roof Construction">
@@ -142,8 +141,6 @@
                         <i data-lucide="arrow-up-right" class="text-emerald-400"></i>
                     </div>
                 </a>
-
-                <!-- Project 3 -->
                 <a href="index2.html" class="group block relative overflow-hidden rounded-3xl glass hover-card transition-all duration-500" data-aos="fade-up" data-aos-delay="200">
                     <div class="overflow-hidden h-64 md:h-80">
                         <img src="image8.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Small Business">
@@ -158,83 +155,92 @@
         </div>
     </section>
 
-    <!-- Footer Section -->
     <footer class="py-12 border-t border-white/10 glass">
-        <div class="container mx-auto px-6">
+        <div class="container mx-auto px-6 text-center md:text-left">
             <div class="flex flex-col md:flex-row justify-between items-center gap-8">
                 <div class="flex items-center gap-2">
                     <img src="LOGO WEB.png" class="w-8 h-8 object-contain" alt="Logo">
                     <span class="font-bold text-lg tracking-tighter">SK BALOCH</span>
                 </div>
-                
-                <div class="text-center md:text-right">
-                    <p class="text-gray-400 text-sm mb-2">
-                        By <span class="text-emerald-400 font-medium">SK Baloch</span>, Website Designer
-                    </p>
-                    <p class="text-gray-500 text-xs mb-4">
-                        All rights reserved © 2026
-                    </p>
-                    <a href="mailto:itxskbaloch4@gmail.com" class="text-white hover:text-emerald-400 transition-colors text-sm font-medium">
-                        itxskbaloch4@gmail.com
-                    </a>
+                <div>
+                    <p class="text-gray-400 text-sm mb-2">By <span class="text-emerald-400 font-medium">SK Baloch</span></p>
+                    <p class="text-gray-500 text-xs">All rights reserved © 2026</p>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Floating Buttons -->
     <div class="fixed bottom-6 right-6 flex flex-col gap-4 z-[100]">
-        <a href="https://wa.me/923046412577" class="relative group w-12 h-12 md:w-14 md:h-14 bg-green-500 rounded-full flex items-center justify-center text-white shadow-xl hover:scale-110 transition btn-float">
-            <i data-lucide="phone" class="w-5 h-5 md:w-6 md:h-6"></i>
-            <span class="bubble" style="left: 10px; animation-delay: 0s;"></span>
-            <span class="bubble" style="left: 30px; animation-delay: 0.5s;"></span>
+        <a href="https://wa.me/923046412577" class="relative w-14 h-14 bg-green-500 flex items-center justify-center text-white shadow-xl hover:scale-110 transition btn-liquid">
+            <i data-lucide="phone" class="w-6 h-6"></i>
         </a>
-        <a href="mailto:itxskbaloch4@gmail.com" class="relative group w-12 h-12 md:w-14 md:h-14 bg-blue-500 rounded-full flex items-center justify-center text-white shadow-xl hover:scale-110 transition btn-float">
-            <i data-lucide="mail" class="w-5 h-5 md:w-6 md:h-6"></i>
-            <span class="bubble" style="left: 20px; animation-delay: 0.2s;"></span>
+        <a href="mailto:itxskbaloch4@gmail.com" class="relative w-14 h-14 bg-blue-500 flex items-center justify-center text-white shadow-xl hover:scale-110 transition btn-liquid">
+            <i data-lucide="mail" class="w-6 h-6"></i>
         </a>
     </div>
 
-    <!-- Scripts -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
         lucide.createIcons();
 
-        // Mobile Menu Logic
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const links = document.querySelectorAll('.mobile-link');
-
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-            const icon = menuBtn.querySelector('i');
-            if (mobileMenu.classList.contains('active')) {
-                icon.setAttribute('data-lucide', 'x');
-            } else {
-                icon.setAttribute('data-lucide', 'menu');
-            }
+        // Theme Toggle Logic
+        const themeBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            const isLight = document.body.classList.contains('light-mode');
+            themeIcon.setAttribute('data-lucide', isLight ? 'sun' : 'moon');
             lucide.createIcons();
         });
 
-        links.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                menuBtn.querySelector('i').setAttribute('data-lucide', 'menu');
-                lucide.createIcons();
-            });
+        // Mobile Menu
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            lucide.createIcons();
         });
 
-        // Cursor Logic (PC Only)
+        // Cursor Trail & Logic
         if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
             const cursor = document.getElementById('cursor');
             const blur = document.getElementById('cursor-blur');
+            const trailCount = 8;
+            const trails = [];
+
+            for(let i=0; i<trailCount; i++) {
+                let div = document.createElement('div');
+                div.className = 'trail';
+                document.body.appendChild(div);
+                trails.push(div);
+            }
+
+            let mouseX = 0, mouseY = 0;
+            let trailX = Array(trailCount).fill(0);
+            let trailY = Array(trailCount).fill(0);
+
             document.addEventListener('mousemove', (e) => {
-                cursor.style.left = e.clientX + 'px';
-                cursor.style.top = e.clientY + 'px';
-                blur.style.left = (e.clientX - 75) + 'px';
-                blur.style.top = (e.clientY - 75) + 'px';
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                cursor.style.transform = `translate(${mouseX - 10}px, ${mouseY - 10}px)`;
+                blur.style.transform = `translate(${mouseX - 75}px, ${mouseY - 75}px)`;
             });
+
+            function animateTrail() {
+                let curX = mouseX;
+                let curY = mouseY;
+                
+                trails.forEach((t, index) => {
+                    trailX[index] += (curX - trailX[index]) * 0.3;
+                    trailY[index] += (curY - trailY[index]) * 0.3;
+                    t.style.transform = `translate(${trailX[index] - 3}px, ${trailY[index] - 3}px)`;
+                    curX = trailX[index];
+                    curY = trailY[index];
+                });
+                requestAnimationFrame(animateTrail);
+            }
+            animateTrail();
         }
     </script>
 </body>
