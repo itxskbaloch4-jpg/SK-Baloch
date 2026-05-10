@@ -24,8 +24,8 @@
                 <h2 class="text-2xl font-bold text-white">Admin Access</h2>
                 <p class="text-gray-400 text-sm">Enter password to manage your digital assets</p>
             </div>
-            <input type="password" id="adminPass" placeholder="••••••••" class="w-full p-4 rounded-xl bg-white/5 border border-white/10 mb-4 outline-none focus:border-emerald-500 transition-all text-center tracking-widest">
-            <button onclick="checkLogin()" class="w-full py-4 bg-emerald-500 text-black font-bold rounded-xl hover:bg-emerald-400 transition-all transform active:scale-95">Login to Dashboard</button>
+            <input type="password" id="adminPass" placeholder="••••••••" class="w-full p-4 rounded-xl bg-white/5 border border-white/10 mb-4 outline-none focus:border-emerald-500 transition-all text-center tracking-widest text-white">
+            <button id="loginBtn" class="w-full py-4 bg-emerald-500 text-black font-bold rounded-xl hover:bg-emerald-400 transition-all transform active:scale-95">Login to Dashboard</button>
             <p id="loginError" class="text-red-500 mt-4 text-center hidden">Invalid Credentials!</p>
         </div>
     </div>
@@ -38,13 +38,12 @@
                     <h1 class="text-xl font-bold tracking-tight">Baloch <span class="text-emerald-400">Control</span></h1>
                 </div>
                 
-                <div class="flex items-center gap-6">
+                <div class="flex items-center gap-6 text-sm">
                     <div class="flex gap-4">
-                        <button onclick="switchTab('leads')" id="btn-leads" class="tab-btn active px-2 py-1 text-sm font-medium">Leads</button>
-                        <button onclick="switchTab('cms')" id="btn-cms" class="tab-btn px-2 py-1 text-sm font-medium text-gray-400">Website CMS</button>
-                        <button onclick="switchTab('pages')" id="btn-pages" class="tab-btn px-2 py-1 text-sm font-medium text-gray-400">Pages</button>
+                        <button onclick="switchTab('leads')" id="btn-leads" class="tab-btn active px-2 py-1 font-medium">Leads</button>
+                        <button onclick="switchTab('cms')" id="btn-cms" class="tab-btn px-2 py-1 font-medium text-gray-400">Website CMS</button>
                     </div>
-                    <button onclick="logout()" class="p-2 text-gray-400 hover:text-red-400 transition"><i data-lucide="log-out"></i></button>
+                    <button id="logoutBtn" class="p-2 text-gray-400 hover:text-red-400 transition"><i data-lucide="log-out"></i></button>
                 </div>
             </div>
         </nav>
@@ -53,104 +52,150 @@
             
             <div id="section-leads">
                 <div class="grid md:grid-cols-3 gap-6 mb-8">
-                    <div class="p-6 glass rounded-2xl border-l-4 border-l-gray-500">
-                        <p class="text-gray-400 text-xs uppercase tracking-wider mb-1">Total Requests</p>
-                        <h3 id="totalLeads" class="text-3xl font-bold">0</h3>
-                    </div>
-                    <div class="p-6 glass rounded-2xl border-l-4 border-l-emerald-500">
-                        <p class="text-gray-400 text-xs uppercase tracking-wider mb-1">High Intent (AI)</p>
-                        <h3 id="highScoreLeads" class="text-3xl font-bold text-emerald-400">0</h3>
-                    </div>
-                    <div class="p-6 glass rounded-2xl border-l-4 border-l-blue-500">
-                        <p class="text-gray-400 text-xs uppercase tracking-wider mb-1">Active Deals</p>
-                        <h3 id="activeLeads" class="text-3xl font-bold text-blue-400">0</h3>
-                    </div>
+                    <div class="p-6 glass rounded-2xl"><p class="text-gray-400 text-xs mb-1">Total Requests</p><h3 id="totalLeads" class="text-3xl font-bold">0</h3></div>
+                    <div class="p-6 glass rounded-2xl"><p class="text-gray-400 text-xs mb-1">High Intent</p><h3 id="highScoreLeads" class="text-3xl font-bold text-emerald-400">0</h3></div>
+                    <div class="p-6 glass rounded-2xl"><p class="text-gray-400 text-xs mb-1">Active Deals</p><h3 id="activeLeads" class="text-3xl font-bold text-blue-400">0</h3></div>
                 </div>
 
-                <div class="glass rounded-2xl overflow-hidden border border-white/5">
-                    <table class="w-full text-left border-collapse">
-                        <thead class="bg-white/5 text-gray-400 text-[11px] uppercase tracking-widest">
-                            <tr>
-                                <th class="p-4">Prospect Details</th>
-                                <th class="p-4 text-center">Quality Score</th>
-                                <th class="p-4">Current Status</th>
-                                <th class="p-4">Received</th>
-                                <th class="p-4 text-right">Actions</th>
-                            </tr>
+                <div class="glass rounded-2xl overflow-hidden">
+                    <table class="w-full text-left">
+                        <thead class="bg-white/5 text-gray-400 text-[10px] uppercase tracking-widest">
+                            <tr><th class="p-4">Prospect</th><th class="p-4">AI Score</th><th class="p-4">Status</th><th class="p-4 text-right">Actions</th></tr>
                         </thead>
-                        <tbody id="leadsTableBody" class="divide-y divide-white/5 text-sm">
-                            </tbody>
+                        <tbody id="leadsTableBody" class="divide-y divide-white/5 text-sm"></tbody>
                     </table>
                 </div>
             </div>
 
             <div id="section-cms" class="hidden-section">
-                <div class="max-w-4xl mx-auto">
-                    <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-2xl font-bold">Customize Homepage</h2>
-                        <button id="saveContentBtn" onclick="updateWebsiteContent()" class="px-6 py-2 bg-emerald-500 text-black font-bold rounded-lg hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] transition">Save Changes</button>
+                <div class="max-w-2xl mx-auto space-y-6">
+                    <div class="flex justify-between items-center">
+                        <h2 class="text-xl font-bold">Edit Homepage</h2>
+                        <button id="saveContentBtn" class="px-6 py-2 bg-emerald-500 text-black font-bold rounded-lg">Save Changes</button>
                     </div>
-
-                    <div class="grid gap-6">
-                        <div class="p-6 glass rounded-2xl">
-                            <h4 class="text-emerald-400 font-bold mb-4 flex items-center gap-2"><i data-lucide="layout"></i> Hero Section</h4>
-                            <div class="space-y-4">
-                                <div>
-                                    <label class="text-xs text-gray-400 block mb-1">Main Heading</label>
-                                    <input type="text" id="edit-title" class="w-full p-3 rounded-lg bg-black/40 border border-white/10 outline-none focus:border-emerald-500">
-                                </div>
-                                <div>
-                                    <label class="text-xs text-gray-400 block mb-1">Sub-headline / Description</label>
-                                    <textarea id="edit-desc" rows="3" class="w-full p-3 rounded-lg bg-black/40 border border-white/10 outline-none focus:border-emerald-500"></textarea>
-                                </div>
-                            </div>
+                    <div class="glass p-6 rounded-2xl space-y-4">
+                        <div>
+                            <label class="text-xs text-gray-400">Heading</label>
+                            <input type="text" id="edit-title" class="w-full p-3 rounded-lg bg-black/40 border border-white/10 outline-none focus:border-emerald-500">
                         </div>
-
-                        <div class="p-6 glass rounded-2xl">
-                            <h4 class="text-blue-400 font-bold mb-4 flex items-center gap-2"><i data-lucide="image"></i> Visual Media</h4>
-                            <div class="space-y-4">
-                                <div>
-                                    <label class="text-xs text-gray-400 block mb-1">Hero Background Image URL</label>
-                                    <input type="text" id="edit-img" placeholder="https://unsplash.com/..." class="w-full p-3 rounded-lg bg-black/40 border border-white/10 outline-none focus:border-emerald-500">
-                                </div>
-                            </div>
+                        <div>
+                            <label class="text-xs text-gray-400">Description</label>
+                            <textarea id="edit-desc" rows="3" class="w-full p-3 rounded-lg bg-black/40 border border-white/10 outline-none focus:border-emerald-500"></textarea>
+                        </div>
+                        <div>
+                            <label class="text-xs text-gray-400">Image URL</label>
+                            <input type="text" id="edit-img" class="w-full p-3 rounded-lg bg-black/40 border border-white/10 outline-none focus:border-emerald-500">
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div id="section-pages" class="hidden-section">
-                <div class="max-w-4xl mx-auto">
-                    <div class="p-6 glass rounded-2xl border border-dashed border-white/20 mb-6">
-                        <h3 class="text-xl font-bold mb-4">Add New Web Page</h3>
-                        <div class="grid md:grid-cols-2 gap-4 mb-4">
-                            <input type="text" id="page-title" placeholder="Page Title (e.g. Services)" class="p-3 rounded-lg bg-black/40 border border-white/10 outline-none focus:border-emerald-500">
-                            <input type="text" id="page-slug" placeholder="URL Slug (e.g. services)" class="p-3 rounded-lg bg-black/40 border border-white/10 outline-none focus:border-emerald-500">
-                        </div>
-                        <textarea id="page-html" rows="10" placeholder="Paste HTML/Tailwind Code Here..." class="w-full p-4 rounded-lg bg-black/40 border border-white/10 font-mono text-sm mb-4"></textarea>
-                        <button onclick="createNewPage()" class="w-full py-3 bg-blue-600 rounded-lg font-bold hover:bg-blue-500 transition">Publish Page</button>
-                    </div>
-                </div>
-            </div>
-
         </main>
     </div>
 
-    <script src="js/admin.js"></script>
     <script>
-        // Tab Switching Logic
+        const API_URL = '/api';
+
+        // 1. Initial Load
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            const token = localStorage.getItem('admin_token');
+            if (token) showDashboard();
+        });
+
+        // 2. Login Handler
+        document.getElementById('loginBtn').addEventListener('click', async () => {
+            const pass = document.getElementById('adminPass').value;
+            const errorMsg = document.getElementById('loginError');
+
+            try {
+                const res = await fetch(`${API_URL}/admin-login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ password: pass })
+                });
+                const data = await res.json();
+
+                if (data.success) {
+                    localStorage.setItem('admin_token', 'sk-admin-2026');
+                    showDashboard();
+                } else {
+                    errorMsg.classList.remove('hidden');
+                }
+            } catch (e) { alert("Server Error!"); }
+        });
+
+        // 3. Show Dashboard
+        function showDashboard() {
+            document.getElementById('loginSection').style.display = 'none';
+            document.getElementById('adminContent').style.display = 'block';
+            fetchLeads();
+            loadCMS();
+        }
+
+        // 4. Tab Switching
         function switchTab(tab) {
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active', 'text-emerald-400'));
             document.querySelectorAll('[id^="section-"]').forEach(s => s.classList.add('hidden-section'));
-            
             document.getElementById('btn-' + tab).classList.add('active', 'text-emerald-400');
             document.getElementById('section-' + tab).classList.remove('hidden-section');
-            
-            lucide.createIcons();
         }
-        
-        // Initialize Lucide Icons
-        lucide.createIcons();
+
+        // 5. Fetch Leads
+        async function fetchLeads() {
+            const res = await fetch(`${API_URL}/leads`);
+            const leads = await res.json();
+            const body = document.getElementById('leadsTableBody');
+            body.innerHTML = leads.map(l => `
+                <tr class="border-b border-white/5">
+                    <td class="p-4">${l.name}<br><span class="text-[10px] text-gray-500">${l.email}</span></td>
+                    <td class="p-4 text-emerald-400 font-bold">${l.lead_score}%</td>
+                    <td class="p-4 text-xs capitalize">${l.status}</td>
+                    <td class="p-4 text-right"><button onclick="deleteLead('${l.id}')" class="text-red-500">Delete</button></td>
+                </tr>
+            `).join('');
+            document.getElementById('totalLeads').innerText = leads.length;
+        }
+
+        // 6. CMS Logic
+        async function loadCMS() {
+            const res = await fetch(`${API_URL}/content/hero`);
+            if (res.ok) {
+                const data = await res.json();
+                document.getElementById('edit-title').value = data.title || '';
+                document.getElementById('edit-desc').value = data.description || '';
+                document.getElementById('edit-img').value = data.imageUrl || '';
+            }
+        }
+
+        document.getElementById('saveContentBtn').addEventListener('click', async () => {
+            const content = {
+                section: 'hero',
+                content: {
+                    title: document.getElementById('edit-title').value,
+                    description: document.getElementById('edit-desc').value,
+                    imageUrl: document.getElementById('edit-img').value
+                }
+            };
+            const res = await fetch(`${API_URL}/admin/update-content`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(content)
+            });
+            if (res.ok) alert("Website Updated!");
+        });
+
+        // 7. Logout
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            localStorage.removeItem('admin_token');
+            location.reload();
+        });
+
+        async function deleteLead(id) {
+            if(confirm("Delete?")) {
+                await fetch(`${API_URL}/leads/${id}`, { method: 'DELETE' });
+                fetchLeads();
+            }
+        }
     </script>
 </body>
 </html>
