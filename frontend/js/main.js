@@ -1,28 +1,33 @@
-// Analytics tracking function
-async function trackUserAction(eventName, details = {}) {
+// Function to load dynamic content
+async function loadDynamicContent() {
     try {
-        await fetch('http://localhost:5000/api/track-event', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ event_name: eventName, metadata: details })
-        });
-    } catch (e) { console.log("Analytics error"); }
+        // Hero Section fetch karein
+        const response = await fetch('/api/content/hero');
+        const content = await response.json();
+
+        // UI update karein
+        if(document.getElementById('hero-title')) {
+            document.getElementById('hero-title').innerText = content.title;
+            document.getElementById('hero-desc').innerText = content.description;
+            document.getElementById('hero-img').src = content.imageUrl;
+        }
+    } catch (e) { console.log("CMS load error"); }
 }
 
-// Track Portfolio View
-document.querySelectorAll('.portfolio-card').forEach(card => {
-    card.addEventListener('click', () => {
-        const projectName = card.querySelector('h3').innerText;
-        trackUserAction('portfolio_click', { project: projectName });
-    });
+// Function to load dynamic pages
+async function checkDynamicPage() {
+    const path = window.location.pathname.replace('/', '');
+    if(path && path !== 'index.html' && path !== 'admin') {
+        const res = await fetch(`/api/pages/${path}`);
+        if(res.ok) {
+            const page = await res.json();
+            document.body.innerHTML = page.html_content; // Pura page backend se load hoga
+            document.title = page.title;
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadDynamicContent();
+    checkDynamicPage();
 });
-
-// Mobile Menu Toggle
-const menuBtn = document.getElementById('menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-if(menuBtn) {
-    menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('active');
-        trackUserAction('menu_opened');
-    });
-}
