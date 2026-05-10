@@ -1,13 +1,12 @@
 const { createClient } = require('@supabase/supabase-js');
-require('dotenv').config();
 
-const supabaseUrl = process.env.SUPABASE_URL;https://plbqvslzghamavkxbqmu.supabase.co
+// Environment variables se data uthayen
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_SERVICE_KEY;
 
-const supabaseKey = process.env.SUPABASE_SERVICE_KEY;sb_publishable_4jrYYaRizlEbOXNz8uRDDA_Y1XNEgi7
-
-
+// Agar keys missing hon toh console mein error dikhaye (sirf debugging ke liye)
 if (!supabaseUrl || !supabaseKey) {
-    console.error("❌ Supabase URL or Key missing in .env file");
+    console.error("Missing Supabase Configuration! Check Vercel Environment Variables.");
 }
 
 const supabase = createClient(supabaseUrl, supabaseKey);
