@@ -1,22 +1,15 @@
 {
-  "name": "sk-baloch-crm-saas",
-  "version": "1.0.0",
-  "description": "Premium AI Powered Lead Gen System",
-  "main": "backend/server.js",
+  "name": "sk-baloch-platform",
+  "version": "2.0.0",
+  "private": true,
   "scripts": {
-    "start": "node backend/server.js",
-    "dev": "nodemon backend/server.js"
+    "dev": "concurrently \"npm run frontend\" \"npm run backend\"",
+    "frontend": "cd frontend && npm run dev",
+    "backend": "cd backend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "start": "cd backend && node server.js"
   },
   "dependencies": {
-    "@google/generative-ai": "^0.11.0",
-    "@supabase/supabase-js": "^2.43.2",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "helmet": "^7.1.0",
-    "resend": "^3.2.0"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.0"
+    "concurrently": "^9.0.0"
   }
 }
