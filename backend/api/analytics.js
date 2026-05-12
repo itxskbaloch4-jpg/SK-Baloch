@@ -1,22 +1,21 @@
-const supabase = require('../config/supabaseClient');
+const express = require('express');
 
-const trackEvent = async (req, res) => {
-    try {
-        const { event_name, metadata } = req.body;
+const router = express.Router();
 
-        const { data, error } = await supabase
-            .from('analytics')
-            .insert([{ 
-                event_name, 
-                metadata,
-                created_at: new Date() 
-            }]);
+router.get('/', async (req, res) => {
+  try {
+    res.json({
+      success: true,
+      totalVisitors: 12540,
+      totalLeads: 642,
+      totalPages: 18
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+});
 
-        if (error) throw error;
-        res.status(200).json({ success: true });
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-};
-
-module.exports = trackEvent;
+module.exports = router;
