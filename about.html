@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="description" content="About SK Baloch — Premium Website Developer with complete mastery of frontend development. Business websites, UI/UX, and more."/>
+  <title>About | SK Baloch</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+</head>
+<body>
+
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+<canvas id="bubble-canvas"></canvas>
+
+<header class="site-header">
+  <a href="index.html" class="header-logo">SK Baloch</a>
+  <nav class="site-nav">
+    <a href="index.html" data-t="nav.home">Home</a>
+    <a href="about.html" class="active" data-t="nav.about">About</a>
+    <a href="projects.html" data-t="nav.projects">Projects</a>
+    <a href="contact.html" data-t="nav.contact">Contact</a>
+  </nav>
+  <div class="header-controls">
+    <select class="lang-select" id="langSelect">
+      <option value="en">🌐 EN</option>
+      <option value="es">ES</option>
+      <option value="fr">FR</option>
+      <option value="de">DE</option>
+      <option value="it">IT</option>
+      <option value="pt">PT</option>
+      <option value="nl">NL</option>
+      <option value="pl">PL</option>
+      <option value="sv">SV</option>
+    </select>
+    <button class="theme-btn" id="themeBtn" aria-label="Toggle theme"></button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobileNav">
+  <a href="index.html" data-t="nav.home">Home</a>
+  <a href="about.html" class="active" data-t="nav.about">About</a>
+  <a href="projects.html" data-t="nav.projects">Projects</a>
+  <a href="contact.html" data-t="nav.contact">Contact</a>
+</nav>
+
+<div class="page-wrap">
+
+  <!-- PAGE HERO -->
+  <section style="padding:5rem 0 4rem;position:relative;overflow:hidden;">
+    <div class="hero-bg"></div>
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="about-grid">
+        <div>
+          <div class="section-label anim-in">ABOUT ME</div>
+          <h1 class="section-title anim-in" style="animation-delay:0.15s;font-size:clamp(2.5rem,5vw,4rem);margin-bottom:1.5rem;">
+            The Developer<br>Behind the <span>Magic</span>
+          </h1>
+          <p style="color:var(--text2);line-height:1.85;font-size:1rem;max-width:540px;" class="anim-in" style="animation-delay:0.3s;">
+            SK Baloch is a premium website developer with a passion for crafting exceptional digital experiences. Specializing in building modern, high-performance business websites that don't just look stunning — they deliver measurable results.
+          </p>
+          <p style="color:var(--text2);line-height:1.85;font-size:1rem;max-width:540px;margin-top:1rem;" class="anim-in" style="animation-delay:0.4s;">
+            With complete mastery over frontend development — HTML5, CSS3, JavaScript, React, Next.js, TailwindCSS, and advanced animation frameworks — SK Baloch brings a deep technical understanding to every project. From pixel-perfect glassmorphism interfaces to blazing-fast SEO-optimized platforms, every line of code is written with purpose and precision.
+          </p>
+          <p style="color:var(--text2);line-height:1.85;font-size:1rem;max-width:540px;margin-top:1rem;" class="anim-in" style="animation-delay:0.5s;">
+            Having successfully delivered projects in 20+ languages for 50+ satisfied clients across the globe, SK Baloch brings a truly international perspective to web development. Whether you're a startup, agency, or established business, the mission is always the same: deliver a website that earns trust, drives traffic, and grows your brand.
+          </p>
+          <div class="skill-tags" style="margin-top:2rem;">
+            <span class="skill-tag">HTML5 / CSS3</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Next.js</span>
+            <span class="skill-tag">TailwindCSS</span>
+            <span class="skill-tag">UI/UX Design</span>
+            <span class="skill-tag">SEO</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Supabase</span>
+            <span class="skill-tag">Animations</span>
+            <span class="skill-tag">Responsive Design</span>
+            <span class="skill-tag">Multilingual</span>
+          </div>
+        </div>
+        <div class="about-visual" data-reveal>
+          <div class="about-visual-card glass">🧑‍💻</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="section" style="background:var(--bg2);">
+    <div class="container">
+      <div style="text-align:center;max-width:600px;margin:0 auto 3.5rem;">
+        <div class="section-label" data-reveal style="justify-content:center;">CORE VALUES</div>
+        <h2 class="section-title" data-reveal data-delay="100">What Drives <span>Every Project</span></h2>
+      </div>
+      <div class="services-grid">
+        <div class="glass service-card" data-reveal data-delay="0">
+          <span class="service-icon">🎯</span>
+          <h3>Precision</h3>
+          <p>Every pixel, every animation, every interaction is crafted with meticulous attention. There are no shortcuts when quality is the standard.</p>
+        </div>
+        <div class="glass service-card" data-reveal data-delay="100">
+          <span class="service-icon">💡</span>
+          <h3>Innovation</h3>
+          <p>Staying ahead of design trends and technology — bringing fresh, modern solutions that set your brand apart from the competition.</p>
+        </div>
+        <div class="glass service-card" data-reveal data-delay="200">
+          <span class="service-icon">🤝</span>
+          <h3>Partnership</h3>
+          <p>Clients are treated as partners. Open communication, transparency, and genuine care for your project's success are non-negotiable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS MINI -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="glass stat-card" data-reveal data-delay="0">
+          <div class="stat-num">3+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="glass stat-card" data-reveal data-delay="100">
+          <div class="stat-num">50+</div>
+          <div class="stat-label">Projects Delivered</div>
+        </div>
+        <div class="glass stat-card" data-reveal data-delay="200">
+          <div class="stat-num">20+</div>
+          <div class="stat-label">Languages</div>
+        </div>
+        <div class="glass stat-card" data-reveal data-delay="300">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Client Satisfaction</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding:5rem 0;text-align:center;">
+    <div class="container" style="max-width:600px;">
+      <h2 class="section-title" data-reveal>Ready to <span>Work Together?</span></h2>
+      <p class="section-sub" data-reveal data-delay="100" style="margin-bottom:2rem;">Let's build something extraordinary. Reach out and let's talk about your vision.</p>
+      <div data-reveal data-delay="200">
+        <a href="contact.html" class="btn btn-water" style="font-size:1rem;padding:1rem 2.5rem;">✦ Start a Project</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="header-logo" style="font-size:1.3rem;">SK Baloch</div>
+      <p>Premium website developer crafting digital experiences that convert and impress. Trusted by 50+ clients worldwide.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <ul>
+        <li><a href="index.html" data-t="nav.home">Home</a></li>
+        <li><a href="about.html" data-t="nav.about">About</a></li>
+        <li><a href="projects.html" data-t="nav.projects">Projects</a></li>
+        <li><a href="contact.html" data-t="nav.contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="https://wa.me/923046412577">WhatsApp</a></li>
+        <li><a href="mailto:itxskbaloch@gmail.com">Email</a></li>
+        <li><a href="#">Remote · Ohio · Worldwide</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2025 SK Baloch. <span data-t="footer.rights">All rights reserved.</span>
+  </div>
+</footer>
+
+<div class="float-btns">
+  <a href="https://wa.me/923046412577" target="_blank" class="float-btn float-btn-wa" aria-label="WhatsApp">
+    <span class="float-tooltip">WhatsApp Us</span>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <a href="mailto:itxskbaloch@gmail.com" class="float-btn float-btn-em" aria-label="Email">
+    <span class="float-tooltip">Send Email</span>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+  </a>
+</div>
+
+<script src="js/shared.js"></script>
+</body>
+</html>
