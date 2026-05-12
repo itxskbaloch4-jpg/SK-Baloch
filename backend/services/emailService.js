@@ -1,13 +1,22 @@
-const { Resend } = require('resend');
-const resend = new Resend(process.env.RESEND_API_KEY);
+const nodemailer = require('nodemailer');
 
-async function sendClientWelcome(email, name) {
-    await resend.emails.send({
-        from: 'SK Baloch <onboarding@yourdomain.com>',
-        to: email,
-        subject: 'Let\'s build your digital masterpiece',
-        html: `<h1>Hello ${name},</h1><p>We've received your request. Our team is reviewing your requirements.</p>`
-    });
+async function sendEmail(to, subject, text) {
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS
+    }
+  });
+
+  return transporter.sendMail({
+    from: process.env.EMAIL_USER,
+    to,
+    subject,
+    text
+  });
 }
 
-module.exports = { sendClientWelcome };
+module.exports = {
+  sendEmail
+};
