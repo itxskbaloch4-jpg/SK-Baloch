@@ -1,218 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recent Works | SK Baloch Premium</title>
-    
-    <!-- Fonts & Frameworks -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <script src="https://unpkg.com/lucide@latest"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SK Baloch Dynamic Website</title>
 
-    <style>
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background: #050505; 
-            color: #fafafa; 
-            cursor: none; /* Custom cursor active */
-            overflow-x: hidden;
-        }
+  <script src="https://cdn.tailwindcss.com"></script>
 
-        /* Custom Magnetic Cursor */
-        #cursor { 
-            width: 20px; height: 20px; border: 2px solid #6c63ff; border-radius: 50%; 
-            position: fixed; pointer-events: none; z-index: 9999; transition: transform 0.1s ease; 
-        }
+  <style>
+    body {
+      background: linear-gradient(to right, #0f172a, #111827);
+      color: white;
+      font-family: Arial, sans-serif;
+    }
 
-        /* Glassmorphism Effect */
-        .glass-card { 
-            background: rgba(255, 255, 255, 0.02); 
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.08); 
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        .glass-card:hover { 
-            background: rgba(255, 255, 255, 0.05); 
-            border-color: #6c63ff; 
-            transform: translateY(-10px);
-        }
-
-        /* Bubble Animation for Floating Buttons */
-        @keyframes bubble-float {
-            0% { transform: translateY(0) scale(0.5); opacity: 0; }
-            50% { opacity: 0.6; }
-            100% { transform: translateY(-40px) scale(1.5); opacity: 0; }
-        }
-        .bubble {
-            position: absolute; width: 10px; height: 10px; background: rgba(255,255,255,0.4);
-            border-radius: 50%; pointer-events: none; animation: bubble-float 2s infinite ease-in;
-        }
-
-        .text-gradient {
-            background: linear-gradient(135deg, #6c63ff 0%, #9c95ff 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-    </style>
+    .glass {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Custom Cursor -->
-    <div id="cursor"></div>
+  <section class="min-h-screen flex items-center justify-center px-6">
+    <div class="glass p-10 rounded-3xl max-w-2xl w-full text-center">
+      <h1 class="text-5xl font-bold mb-6">
+        SK Baloch Admin Controlled Website
+      </h1>
 
-    <div class="container mx-auto px-6 py-24">
-        <!-- Header Section -->
-        <header class="text-center mb-24" data-aos="fade-down">
-            <a href="index.html" class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-indigo-400 transition mb-6 group">
-                <i data-lucide="arrow-left" class="w-4 h-4 group-hover:-translate-x-1 transition"></i> Back to Main
-            </a>
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tighter">
-                Recent <span class="text-gradient">Works</span>
-            </h1>
-            <p class="text-gray-400 max-w-xl mx-auto text-lg font-light leading-relaxed">
-                A showcase of digital excellence. Har project ko premium quality aur user experience ko dhyan mein rakh kar design kiya gaya hai.
-            </p>
-        </header>
+      <p class="text-lg text-gray-300 mb-8">
+        Fully dynamic frontend with customizable themes,
+        animations and CMS powered admin control.
+      </p>
 
-        <!-- Projects Grid -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            <!-- Project 01 -->
-            <div class="glass-card rounded-[2.5rem] overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                <div class="relative group h-64 overflow-hidden">
-                    <span class="absolute top-6 left-6 z-10 bg-indigo-600 px-4 py-1 rounded-full text-xs font-bold shadow-xl">01</span>
-                    <img src="image.PNG" alt="1099 Tax Calculator" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                </div>
-                <div class="p-8">
-                    <h3 class="text-2xl font-bold mb-3">1099 Tax Calculator</h3>
-                    <p class="text-gray-400 text-sm mb-8 leading-relaxed">Freelancers ke liye ek smart tool jo tax estimation ko boht asaan banata hai.</p>
-                    <a href="https://new-1099.vercel.app/" target="_blank" class="flex items-center justify-between group">
-                        <span class="font-semibold group-hover:text-indigo-400 transition">Visit Website</span>
-                        <i data-lucide="external-link" class="w-5 h-5 text-indigo-500"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Project 02 -->
-            <div class="glass-card rounded-[2.5rem] overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                <div class="relative group h-64 overflow-hidden">
-                    <span class="absolute top-6 left-6 z-10 bg-pink-600 px-4 py-1 rounded-full text-xs font-bold shadow-xl">02</span>
-                    <img src="image1.PNG" alt="Baby Shop" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                </div>
-                <div class="p-8">
-                    <h3 class="text-2xl font-bold mb-3">Baby Shop</h3>
-                    <p class="text-gray-400 text-sm mb-8 leading-relaxed">Polish language mein design kiya gaya ek soft aur user-friendly e-commerce landing page.</p>
-                    <a href="https://baby-lac-two.vercel.app/" target="_blank" class="flex items-center justify-between group">
-                        <span class="font-semibold group-hover:text-pink-400 transition">Visit Website</span>
-                        <i data-lucide="external-link" class="w-5 h-5 text-pink-500"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Project 03 -->
-            <div class="glass-card rounded-[2.5rem] overflow-hidden" data-aos="fade-up" data-aos-delay="300">
-                <div class="relative group h-64 overflow-hidden">
-                    <span class="absolute top-6 left-6 z-10 bg-blue-600 px-4 py-1 rounded-full text-xs font-bold shadow-xl">03</span>
-                    <img src="image2.PNG" alt="BBI Husfabrik" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                </div>
-                <div class="p-8">
-                    <h3 class="text-2xl font-bold mb-3">BBI Husfabrik</h3>
-                    <p class="text-gray-400 text-sm mb-8 leading-relaxed">Swedish construction business website jo quality aur craftsmanship ko reflect karti hai.</p>
-                    <a href="https://swedenconstructio.vercel.app/" target="_blank" class="flex items-center justify-between group">
-                        <span class="font-semibold group-hover:text-blue-400 transition">Visit Website</span>
-                        <i data-lucide="external-link" class="w-5 h-5 text-blue-500"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Project 04 -->
-            <div class="glass-card rounded-[2.5rem] overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                <div class="relative group h-64 overflow-hidden">
-                    <span class="absolute top-6 left-6 z-10 bg-amber-600 px-4 py-1 rounded-full text-xs font-bold shadow-xl">04</span>
-                    <img src="image3.PNG" alt="Copenhagen Construction" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                </div>
-                <div class="p-8">
-                    <h3 class="text-2xl font-bold mb-3">Copenhagen Construction</h3>
-                    <p class="text-gray-400 text-sm mb-8 leading-relaxed">Danish market ke liye ek premium aur professional construction business platform.</p>
-                    <a href="https://copenhagen-khaki.vercel.app/" target="_blank" class="flex items-center justify-between group">
-                        <span class="font-semibold group-hover:text-amber-400 transition">Visit Website</span>
-                        <i data-lucide="external-link" class="w-5 h-5 text-amber-500"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Project 05 -->
-            <div class="glass-card rounded-[2.5rem] overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                <div class="relative group h-64 overflow-hidden">
-                    <span class="absolute top-6 left-6 z-10 bg-green-600 px-4 py-1 rounded-full text-xs font-bold shadow-xl">05</span>
-                    <img src="EverGreen.PNG" alt="Elite Green Lawn" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                </div>
-                <div class="p-8">
-                    <h3 class="text-2xl font-bold mb-3">Elite Green Lawn</h3>
-                    <p class="text-gray-400 text-sm mb-8 leading-relaxed">Nature-inspired design jo lawn care services ko modern style mein present karta hai.</p>
-                    <a href="https://elite-green-website.vercel.app/" target="_blank" class="flex items-center justify-between group">
-                        <span class="font-semibold group-hover:text-green-400 transition">Visit Website</span>
-                        <i data-lucide="external-link" class="w-5 h-5 text-green-500"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Project 06 -->
-            <div class="glass-card rounded-[2.5rem] overflow-hidden" data-aos="fade-up" data-aos-delay="300">
-                <div class="relative group h-64 overflow-hidden">
-                    <span class="absolute top-6 left-6 z-10 bg-cyan-600 px-4 py-1 rounded-full text-xs font-bold shadow-xl">06</span>
-                    <img src="image5.PNG" alt="SikaInstall HVAC" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                </div>
-                <div class="p-8">
-                    <h3 class="text-2xl font-bold mb-3">SikaInstall HVAC</h3>
-                    <p class="text-gray-400 text-sm mb-8 leading-relaxed">Romanian HVAC industry ke liye trust-based conversion focused design.</p>
-                    <a href="https://sika-install-montaj-aer-conditionat.vercel.app/" target="_blank" class="flex items-center justify-between group">
-                        <span class="font-semibold group-hover:text-cyan-400 transition">Visit Website</span>
-                        <i data-lucide="external-link" class="w-5 h-5 text-cyan-500"></i>
-                    </a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Floating Buttons with Bubble Animation -->
-    <div class="fixed bottom-10 right-10 flex flex-col gap-5 z-[100]">
-        <a href="index.html" class="w-14 h-14 bg-indigo-600 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition relative">
-            <i data-lucide="home" class="text-white w-6 h-6"></i>
-            <!-- Bubbles -->
-            <div class="bubble" style="left: 10px; animation-delay: 0s;"></div>
-            <div class="bubble" style="right: 10px; animation-delay: 1s;"></div>
-        </a>
-        <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="w-14 h-14 bg-gray-800 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition">
-            <i data-lucide="chevron-up" class="text-white w-6 h-6"></i>
-        </button>
-    </div>
-
-    <!-- Footer -->
-    <footer class="py-20 text-center border-top border-white/5">
-        <p class="text-gray-500 text-sm font-medium">© 2026 SK Baloch — Premium Craftsmanship in Web</p>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 800, once: true });
-        lucide.createIcons();
-
-        // Magnetic Cursor Logic
-        const cursor = document.getElementById('cursor');
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-
-        // Expand cursor on links
-        document.querySelectorAll('a, button').forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.style.transform = 'scale(2.5)');
-            el.addEventListener('mouseleave', () => cursor.style.transform = 'scale(1)');
-        });
-    </script>
-</body>
 </html>
