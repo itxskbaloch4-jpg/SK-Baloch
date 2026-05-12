@@ -1,26 +1,34 @@
-const supabase = require('../config/supabaseClient');
-const { analyzeLead } = require('../services/aiService');
-const { sendClientWelcome } = require('../services/emailService');
+const express = require('express');
 
-module.exports = async (req, res) => {
-    try {
-        const { name, email, message, business_type, budget, country } = req.body;
+const router = express.Router();
 
-        // 1. AI Analysis
-        const aiAnalysis = await analyzeLead(req.body);
+router.post('/', async (req, res) => {
+  try {
+    const { name, email, phone, message } = req.body;
 
-        // 2. Save to Supabase
-        const { data, error } = await supabase.from('leads').insert([{
-            name, email, message, business_type, budget, country,
-            lead_score: aiAnalysis.score,
-            ai_summary: aiAnalysis.summary
-        }]);
-
-        // 3. Trigger Email
-        await sendClientWelcome(email, name);
-
-        res.status(200).json({ success: true, score: aiAnalysis.score });
-    } catch (err) {
-        res.status(500).json({ error: err.message });
+    if (!name || !email) {
+      return res.status(400).json({
+        success: false,
+        message: 'Name and Email required'
+      });
     }
-};
+
+    res.json({
+      success: true,
+      message: 'Lead submitted successfully',
+      data: {
+        name,
+        email,
+        phone,
+        message
+      }
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+});
+
+module.exports = router;
