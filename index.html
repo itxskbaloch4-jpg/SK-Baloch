@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-  <link rel="icon" type="image/png" href="LOGO WEB.png">
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <meta name="description" content="SK Baloch — Premium Website Developer. 20+ languages, 50+ satisfied clients, 100% responsive. Get a quote today."/>
+  <meta name="description" content="SK Baloch — Premium Website Developer. 20+ languages, 50+ satisfied clients, 100% responsive."/>
+  <meta name="theme-color" content="#04040F"/>
   <title>SK Baloch | Premium Website Developer</title>
+  <link rel="icon" type="image/png" href="favicon.png"/>
   <link rel="stylesheet" href="css/style.css"/>
-  <link rel="preconnect" href="<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
 </head>
 <body>
 
-<!-- CURSOR -->
+<div class="progress-bar"></div>
 <div id="cursor-dot"></div>
 <div id="cursor-ring"></div>
-
-<!-- BUBBLE CANVAS -->
 <canvas id="bubble-canvas"></canvas>
 
-<!-- ===== HEADER ===== -->
 <header class="site-header">
   <a href="index.html" class="header-logo">SK Baloch</a>
   <nav class="site-nav">
@@ -29,14 +29,10 @@
   </nav>
   <div class="header-controls">
     <select class="lang-select" id="langSelect">
-      <option value="en">🌐 EN</option>
-      <option value="es">ES</option>
-      <option value="fr">FR</option>
-      <option value="de">DE</option>
-      <option value="it">IT</option>
-      <option value="pt">PT</option>
-      <option value="nl">NL</option>
-      <option value="pl">PL</option>
+      <option value="en">🌐 EN</option><option value="es">ES</option>
+      <option value="fr">FR</option><option value="de">DE</option>
+      <option value="it">IT</option><option value="pt">PT</option>
+      <option value="nl">NL</option><option value="pl">PL</option>
       <option value="sv">SV</option>
     </select>
     <button class="theme-btn" id="themeBtn" aria-label="Toggle theme"></button>
@@ -46,7 +42,6 @@
   </div>
 </header>
 
-<!-- MOBILE NAV -->
 <nav class="mobile-nav" id="mobileNav">
   <a href="index.html" class="active" data-t="nav.home">Home</a>
   <a href="about.html" data-t="nav.about">About</a>
@@ -54,52 +49,118 @@
   <a href="contact.html" data-t="nav.contact">Contact</a>
 </nav>
 
-<!-- ===== PAGE ===== -->
 <div class="page-wrap">
 
   <!-- HERO -->
   <section class="hero">
+    <div class="nebula-orb orb-1"></div>
+    <div class="nebula-orb orb-2"></div>
+    <div class="nebula-orb orb-3"></div>
     <div class="hero-bg"></div>
-    <div class="container hero-content">
-      <div class="hero-badge anim-in" style="animation-delay:0.1s">
-        <span></span>
-      </div>
-      <h1 class="hero-title anim-in" style="animation-delay:0.2s">
-        <span data-t="hero.title1">Crafting Digital</span><br>
-        <span class="grad" data-t="hero.title2">Experiences That</span><br>
-        <span data-t="hero.title3">Convert &amp; Impress</span>
-      </h1>
-      <p class="hero-sub anim-in" style="animation-delay:0.35s" data-t="hero.sub">
-        Expert in premium web development. Modern, fast, and fully custom websites built to grow your business and captivate your audience worldwide.
-      </p>
-      <div class="hero-btns anim-in" style="animation-delay:0.5s">
-        <a href="contact.html" class="btn btn-water" data-t="hero.cta">✦ Get a Quote</a>
-        <a href="projects.html" class="btn btn-outline" data-t="hero.cta2">View Projects →</a>
+    <div class="dot-grid"></div>
+    <div class="container">
+      <div class="hero-two-col" style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
+
+        <div>
+          <div class="hero-badge anim-in" style="animation-delay:.1s">Available for Projects Worldwide</div>
+          <h1 class="hero-title anim-in" style="animation-delay:.2s">
+            <span data-t="hero.title1">Crafting Digital</span><br>
+            <span class="grad" data-t="hero.title2">Experiences That</span><br>
+            <span data-t="hero.title3">Convert &amp; Impress</span>
+          </h1>
+          <p class="hero-sub anim-in" style="animation-delay:.35s" data-t="hero.sub">
+            Expert in premium web development. Modern, fast, and fully custom websites built to grow your business and captivate your audience worldwide.
+          </p>
+          <div class="hero-btns anim-in" style="animation-delay:.5s">
+            <a href="contact.html" class="btn btn-water" data-t="hero.cta">✦ Get a Quote</a>
+            <a href="projects.html" class="btn btn-outline" data-t="hero.cta2">View Projects →</a>
+          </div>
+          <div class="trust-row anim-in" style="animation-delay:.65s">
+            <div class="trust-avatars">
+              <div class="trust-av" style="background:linear-gradient(135deg,#4F8AFF,#B459FF)">JM</div>
+              <div class="trust-av" style="background:linear-gradient(135deg,#00F5C8,#4F8AFF)">LR</div>
+              <div class="trust-av" style="background:linear-gradient(135deg,#FF5EA0,#FFB830)">KA</div>
+              <div class="trust-av" style="background:linear-gradient(135deg,#B459FF,#00F5C8)">+</div>
+            </div>
+            <div class="trust-text">
+              <strong>50+ Clients</strong> trust SK Baloch worldwide
+              <div style="color:#FFB830;font-size:.74rem;margin-top:1px">★★★★★ 4.9/5</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual-wrap anim-in" style="animation-delay:.4s">
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:300px;height:300px;border-radius:50%;background:var(--a1);filter:blur(80px);opacity:.07;pointer-events:none"></div>
+          <div class="hv-center">💻</div>
+          <div class="orbit-ring ring-1"></div>
+          <div class="orbit-ring ring-2"></div>
+          <div class="orbit-ring ring-3"></div>
+          <div class="float-tag ft1">⚡ 100/100 PageSpeed</div>
+          <div class="float-tag ft2">🎨 UI/UX Design</div>
+          <div class="float-tag ft3">🌍 20+ Languages</div>
+          <div class="float-tag ft4">📱 Mobile-First</div>
+          <div class="float-tag ft5">🔒 Secure &amp; Fast</div>
+        </div>
+
       </div>
     </div>
+    <div class="scroll-ind">
+      SCROLL
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+    </div>
   </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <div class="marquee-item"><span class="mdot"></span>HTML5 / CSS3</div>
+      <div class="marquee-item"><span class="mdot"></span>JavaScript</div>
+      <div class="marquee-item"><span class="mdot"></span>React</div>
+      <div class="marquee-item"><span class="mdot"></span>Next.js</div>
+      <div class="marquee-item"><span class="mdot"></span>TailwindCSS</div>
+      <div class="marquee-item"><span class="mdot"></span>GSAP Animations</div>
+      <div class="marquee-item"><span class="mdot"></span>Three.js</div>
+      <div class="marquee-item"><span class="mdot"></span>Node.js</div>
+      <div class="marquee-item"><span class="mdot"></span>Supabase</div>
+      <div class="marquee-item"><span class="mdot"></span>SEO Optimization</div>
+      <div class="marquee-item"><span class="mdot"></span>UI/UX Design</div>
+      <div class="marquee-item"><span class="mdot"></span>Multilingual</div>
+      <div class="marquee-item"><span class="mdot"></span>HTML5 / CSS3</div>
+      <div class="marquee-item"><span class="mdot"></span>JavaScript</div>
+      <div class="marquee-item"><span class="mdot"></span>React</div>
+      <div class="marquee-item"><span class="mdot"></span>Next.js</div>
+      <div class="marquee-item"><span class="mdot"></span>TailwindCSS</div>
+      <div class="marquee-item"><span class="mdot"></span>GSAP Animations</div>
+      <div class="marquee-item"><span class="mdot"></span>Three.js</div>
+      <div class="marquee-item"><span class="mdot"></span>Node.js</div>
+      <div class="marquee-item"><span class="mdot"></span>Supabase</div>
+      <div class="marquee-item"><span class="mdot"></span>SEO Optimization</div>
+      <div class="marquee-item"><span class="mdot"></span>UI/UX Design</div>
+      <div class="marquee-item"><span class="mdot"></span>Multilingual</div>
+    </div>
+  </div>
 
   <!-- STATS -->
   <section class="section-sm">
     <div class="container">
       <div class="stats-grid">
         <div class="glass stat-card" data-reveal data-delay="0">
-          <div class="stat-num">20+</div>
+          <div class="stat-num" data-count="20+">0+</div>
           <div class="stat-label" data-t="stats.languages">Languages</div>
-          <div style="color:var(--accent3);font-size:0.75rem;margin-top:4px;">Projects Delivered</div>
+          <div style="color:var(--a3);font-size:.73rem;margin-top:4px">Projects Delivered</div>
         </div>
         <div class="glass stat-card" data-reveal data-delay="100">
-          <div class="stat-num">50+</div>
+          <div class="stat-num" data-count="50+">0+</div>
           <div class="stat-label" data-t="stats.clients">Satisfied Clients</div>
-          <div style="color:var(--accent3);font-size:0.75rem;margin-top:4px;">Worldwide</div>
+          <div style="color:var(--a3);font-size:.73rem;margin-top:4px">Worldwide</div>
         </div>
         <div class="glass stat-card" data-reveal data-delay="200">
-          <div class="stat-num">100%</div>
+          <div class="stat-num" data-count="100%">0%</div>
           <div class="stat-label" data-t="stats.responsive">Responsive</div>
-          <div style="color:var(--accent3);font-size:0.75rem;margin-top:4px;">Every Device</div>
+          <div style="color:var(--a3);font-size:.73rem;margin-top:4px">Every Device</div>
         </div>
         <div class="glass stat-card" data-reveal data-delay="300">
-          <div class="stat-num">4.9/5</div>
+          <div class="stat-num" data-count="4.9">0</div>
           <div class="stat-label" data-t="stats.trust">Trust Score</div>
           <div class="stars">★★★★★</div>
         </div>
@@ -107,10 +168,12 @@
     </div>
   </section>
 
-  <!-- WHAT WE OFFER -->
+  <div class="grad-line"></div>
+
+  <!-- SERVICES -->
   <section class="section">
     <div class="container">
-      <div style="text-align:center;max-width:600px;margin:0 auto 3.5rem;">
+      <div style="text-align:center;max-width:600px;margin:0 auto 3.5rem">
         <div class="section-label" data-reveal data-t="offer.label">WHAT WE OFFER</div>
         <h2 class="section-title" data-reveal data-delay="100">
           <span data-t="offer.title">Full-Stack Services in</span><br>
@@ -153,14 +216,15 @@
     </div>
   </section>
 
+  <div class="grad-line"></div>
+
   <!-- REVIEWS -->
-  <section class="section" style="background:var(--bg2);padding-top:5rem;padding-bottom:5rem;">
+  <section class="section" style="background:var(--bg2)">
     <div class="container">
-      <div style="text-align:center;max-width:600px;margin:0 auto 3.5rem;">
+      <div style="text-align:center;max-width:600px;margin:0 auto 3.5rem">
         <div class="section-label" data-reveal data-t="reviews.label">CLIENT REVIEWS</div>
         <h2 class="section-title" data-reveal data-delay="100">
-          <span data-t="reviews.title">What Our</span>
-          <span data-t="reviews.title2"> <span>Clients Say</span></span>
+          <span data-t="reviews.title">What Our</span><span data-t="reviews.title2"> <span>Clients Say</span></span>
         </h2>
       </div>
       <div class="reviews-grid">
@@ -177,7 +241,7 @@
         </div>
         <div class="glass review-card" data-reveal data-delay="150">
           <div class="review-header">
-            <div class="review-avatar" style="background:linear-gradient(135deg,var(--accent3),var(--accent))">LR</div>
+            <div class="review-avatar" style="background:linear-gradient(135deg,var(--a3),var(--a1))">LR</div>
             <div>
               <div class="review-name">Laura Reyes</div>
               <div class="review-role">Founder, Studio Vibe</div>
@@ -188,7 +252,7 @@
         </div>
         <div class="glass review-card" data-reveal data-delay="300">
           <div class="review-header">
-            <div class="review-avatar" style="background:linear-gradient(135deg,#ff6b6b,#ffa726)">KA</div>
+            <div class="review-avatar" style="background:linear-gradient(135deg,var(--a5),var(--a4))">KA</div>
             <div>
               <div class="review-name">Khalid Al-Rashid</div>
               <div class="review-role">Marketing Director</div>
@@ -201,14 +265,15 @@
     </div>
   </section>
 
+  <div class="grad-line"></div>
+
   <!-- WHY US -->
   <section class="section">
     <div class="container">
-      <div style="text-align:center;max-width:600px;margin:0 auto 3.5rem;">
+      <div style="text-align:center;max-width:600px;margin:0 auto 3.5rem">
         <div class="section-label" data-reveal data-t="whyus.label">WHY US</div>
         <h2 class="section-title" data-reveal data-delay="100">
-          <span data-t="whyus.title">The</span>
-          <span data-t="whyus.title2"> <span>Right Choice</span> For You</span>
+          <span data-t="whyus.title">The</span><span data-t="whyus.title2"> <span>Right Choice</span> For You</span>
         </h2>
       </div>
       <div class="whyus-grid">
@@ -216,48 +281,43 @@
           <div class="whyus-icon">⚡</div>
           <div>
             <h4>Blazing Fast Delivery</h4>
-            <p>Most projects completed within 3–7 days. We value your time as much as you do, without cutting corners on quality.</p>
+            <p>Most projects completed within 3–7 days. We value your time, without cutting corners on quality.</p>
           </div>
         </div>
         <div class="glass whyus-item" data-reveal data-delay="100">
           <div class="whyus-icon">🎯</div>
           <div>
             <h4>Results-Driven Approach</h4>
-            <p>Every design decision is backed by conversion strategy. We don't just build pretty sites — we build sites that work.</p>
+            <p>Every design decision is backed by conversion strategy. We build sites that work, not just look good.</p>
           </div>
         </div>
         <div class="glass whyus-item" data-reveal data-delay="200">
           <div class="whyus-icon">💬</div>
           <div>
             <h4>Clear Communication</h4>
-            <p>Daily updates, clear milestones, and a dedicated communication channel so you're never left wondering.</p>
+            <p>Daily updates, clear milestones, and a dedicated channel so you're never left wondering.</p>
           </div>
         </div>
         <div class="glass whyus-item" data-reveal data-delay="300">
           <div class="whyus-icon">🛡️</div>
           <div>
             <h4>Post-Launch Support</h4>
-            <p>30-day free support after delivery. Updates, fixes, and guidance included — your investment is fully protected.</p>
+            <p>30-day free support after delivery. Updates, fixes, and guidance included — your investment protected.</p>
           </div>
         </div>
       </div>
-
-      <!-- CTA -->
-      <div style="text-align:center;margin-top:4rem;" data-reveal data-delay="200">
-        <a href="contact.html" class="btn btn-water" style="font-size:1.05rem;padding:1rem 2.5rem;">
-          ✦ Start Your Project Today
-        </a>
+      <div style="text-align:center;margin-top:4rem" data-reveal data-delay="200">
+        <a href="contact.html" class="btn btn-water" style="font-size:1.05rem;padding:1rem 2.5rem">✦ Start Your Project Today</a>
       </div>
     </div>
   </section>
 
-</div><!-- /page-wrap -->
+</div>
 
-<!-- ===== FOOTER ===== -->
 <footer class="site-footer">
   <div class="footer-grid">
     <div class="footer-brand">
-      <div class="header-logo" style="font-size:1.3rem;">SK Baloch</div>
+      <div class="header-logo" style="font-size:1.3rem">SK Baloch</div>
       <p>Premium website developer crafting digital experiences that convert and impress. Trusted by 50+ clients worldwide with a 4.9/5 trust score.</p>
     </div>
     <div class="footer-col">
@@ -280,17 +340,17 @@
   </div>
   <div class="footer-bottom">
     <span>© 2025 SK Baloch. <span data-t="footer.rights">All rights reserved.</span></span>
+    <span style="color:var(--a3);font-size:.77rem">Built with ♥ &amp; Precision</span>
   </div>
 </footer>
 
-<!-- FLOATING BUTTONS -->
 <div class="float-btns">
   <a href="https://wa.me/923046412577" target="_blank" class="float-btn float-btn-wa" aria-label="WhatsApp">
-    <span class="float-tooltip">WhatsApp Us</span>
+    <span class="float-tip">WhatsApp Us</span>
     <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
   <a href="mailto:itxskbaloch@gmail.com" class="float-btn float-btn-em" aria-label="Email">
-    <span class="float-tooltip">Send Email</span>
+    <span class="float-tip">Send Email</span>
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
   </a>
 </div>
