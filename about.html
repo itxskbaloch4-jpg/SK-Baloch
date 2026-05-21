@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-    <link rel="icon" type="image/png" href="LOGO WEB.png">
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <meta name="description" content="About SK Baloch — Premium Website Developer with complete mastery of frontend development. Business websites, UI/UX, and more."/>
+  <meta name="description" content="About SK Baloch — Premium Website Developer."/>
   <title>About | SK Baloch</title>
+  <link rel="icon" type="image/png" href="favicon.png"/>
   <link rel="stylesheet" href="css/style.css"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
 </head>
 <body>
 
+<div class="progress-bar"></div>
 <div id="cursor-dot"></div>
 <div id="cursor-ring"></div>
 <canvas id="bubble-canvas"></canvas>
@@ -25,14 +28,10 @@
   </nav>
   <div class="header-controls">
     <select class="lang-select" id="langSelect">
-      <option value="en">🌐 EN</option>
-      <option value="es">ES</option>
-      <option value="fr">FR</option>
-      <option value="de">DE</option>
-      <option value="it">IT</option>
-      <option value="pt">PT</option>
-      <option value="nl">NL</option>
-      <option value="pl">PL</option>
+      <option value="en">🌐 EN</option><option value="es">ES</option>
+      <option value="fr">FR</option><option value="de">DE</option>
+      <option value="it">IT</option><option value="pt">PT</option>
+      <option value="nl">NL</option><option value="pl">PL</option>
       <option value="sv">SV</option>
     </select>
     <button class="theme-btn" id="themeBtn" aria-label="Toggle theme"></button>
@@ -51,26 +50,51 @@
 
 <div class="page-wrap">
 
-  <!-- PAGE HERO -->
-  <section style="padding:5rem 0 4rem;position:relative;overflow:hidden;">
+  <!-- HERO -->
+  <section style="padding:8rem 0 5rem;position:relative;overflow:hidden">
     <div class="hero-bg"></div>
-    <div class="container" style="position:relative;z-index:2;">
+    <div class="dot-grid"></div>
+    <div class="nebula-orb orb-1"></div>
+    <div class="nebula-orb orb-2"></div>
+    <div class="container" style="position:relative;z-index:2">
       <div class="about-grid">
+
         <div>
           <div class="section-label anim-in">ABOUT ME</div>
-          <h1 class="section-title anim-in" style="animation-delay:0.15s;font-size:clamp(2.5rem,5vw,4rem);margin-bottom:1.5rem;">
+          <h1 class="section-title anim-in" style="animation-delay:.15s;font-size:clamp(2.4rem,5vw,4rem);margin-bottom:1.5rem">
             The Developer<br>Behind the <span>Magic</span>
           </h1>
-          <p style="color:var(--text2);line-height:1.85;font-size:1rem;max-width:540px;" class="anim-in" style="animation-delay:0.3s;">
-            SK Baloch is a premium website developer with a passion for crafting exceptional digital experiences. Specializing in building modern, high-performance business websites that don't just look stunning — they deliver measurable results.
+          <p style="color:var(--t2);line-height:1.85;font-size:1rem;max-width:540px" class="anim-in">
+            SK Baloch is a premium website developer with a passion for crafting exceptional digital experiences. Specializing in building modern, high-performance business websites that deliver measurable results.
           </p>
-          <p style="color:var(--text2);line-height:1.85;font-size:1rem;max-width:540px;margin-top:1rem;" class="anim-in" style="animation-delay:0.4s;">
-            With complete mastery over frontend development — HTML5, CSS3, JavaScript, React, Next.js, TailwindCSS, and advanced animation frameworks — SK Baloch brings a deep technical understanding to every project. From pixel-perfect glassmorphism interfaces to blazing-fast SEO-optimized platforms, every line of code is written with purpose and precision.
+          <p style="color:var(--t2);line-height:1.85;font-size:1rem;max-width:540px;margin-top:1rem" class="anim-in">
+            With complete mastery over HTML5, CSS3, JavaScript, React, Next.js, TailwindCSS, and advanced animation frameworks — every line of code is written with purpose.
           </p>
-          <p style="color:var(--text2);line-height:1.85;font-size:1rem;max-width:540px;margin-top:1rem;" class="anim-in" style="animation-delay:0.5s;">
-            Having successfully delivered projects in 20+ languages for 50+ satisfied clients across the globe, SK Baloch brings a truly international perspective to web development. Whether you're a startup, agency, or established business, the mission is always the same: deliver a website that earns trust, drives traffic, and grows your brand.
-          </p>
-          <div class="skill-tags" style="margin-top:2rem;">
+
+          <div class="timeline anim-in" style="animation-delay:.4s">
+            <div class="tl-item">
+              <div class="tl-year">2022</div>
+              <h5>Started Web Development Journey</h5>
+              <p>Mastered HTML, CSS, JS fundamentals. First freelance projects delivered.</p>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year">2023</div>
+              <h5>Expanded to React &amp; Next.js</h5>
+              <p>Built 20+ premium projects. Reached 25+ satisfied clients worldwide.</p>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year">2024</div>
+              <h5>Multilingual &amp; Global Scale</h5>
+              <p>Projects in 20+ languages. 50+ clients. Launched SK Baloch Studio.</p>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year">2025 →</div>
+              <h5>Year 3026 Design Philosophy</h5>
+              <p>Pioneering next-gen web experiences with 3D, physics &amp; AI-enhanced interfaces.</p>
+            </div>
+          </div>
+
+          <div class="skill-tags" style="margin-top:2rem">
             <span class="skill-tag">HTML5 / CSS3</span>
             <span class="skill-tag">JavaScript</span>
             <span class="skill-tag">React</span>
@@ -81,62 +105,111 @@
             <span class="skill-tag">Node.js</span>
             <span class="skill-tag">Supabase</span>
             <span class="skill-tag">Animations</span>
-            <span class="skill-tag">Responsive Design</span>
+            <span class="skill-tag">Responsive</span>
             <span class="skill-tag">Multilingual</span>
           </div>
         </div>
-        <div class="about-visual" data-reveal>
-          <div class="about-visual-card glass">🧑‍💻</div>
+
+        <div style="position:relative" data-reveal>
+          <div class="about-card-main">🧑‍💻</div>
+          <div class="badge-float bf-top">
+            <div class="bf-icon">⭐</div>
+            <div>
+              <div class="bf-val">4.9 / 5.0</div>
+              <div class="bf-label">Trust Score</div>
+            </div>
+          </div>
+          <div class="badge-float bf-bottom">
+            <div class="bf-icon">🚀</div>
+            <div>
+              <div class="bf-val">50+ Projects</div>
+              <div class="bf-label">Delivered Worldwide</div>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- VALUES -->
-  <section class="section" style="background:var(--bg2);">
+  <!-- SKILLS + VALUES -->
+  <section class="section" style="background:var(--bg2)">
     <div class="container">
-      <div style="text-align:center;max-width:600px;margin:0 auto 3.5rem;">
-        <div class="section-label" data-reveal style="justify-content:center;">CORE VALUES</div>
-        <h2 class="section-title" data-reveal data-delay="100">What Drives <span>Every Project</span></h2>
-      </div>
-      <div class="services-grid">
-        <div class="glass service-card" data-reveal data-delay="0">
-          <span class="service-icon">🎯</span>
-          <h3>Precision</h3>
-          <p>Every pixel, every animation, every interaction is crafted with meticulous attention. There are no shortcuts when quality is the standard.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start">
+
+        <div>
+          <div class="section-label" data-reveal>SKILL MASTERY</div>
+          <h2 class="section-title" data-reveal data-delay="100" style="margin-bottom:2rem">Technical <span>Expertise</span></h2>
+          <div class="skill-bar" data-reveal data-delay="100">
+            <div class="skill-bar-top"><span>HTML5 / CSS3</span><span style="color:var(--a3)">98%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:98%"></div></div>
+          </div>
+          <div class="skill-bar" data-reveal data-delay="150">
+            <div class="skill-bar-top"><span>JavaScript / React</span><span style="color:var(--a3)">94%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:94%"></div></div>
+          </div>
+          <div class="skill-bar" data-reveal data-delay="200">
+            <div class="skill-bar-top"><span>UI/UX Design</span><span style="color:var(--a3)">92%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:92%"></div></div>
+          </div>
+          <div class="skill-bar" data-reveal data-delay="250">
+            <div class="skill-bar-top"><span>Next.js / Node.js</span><span style="color:var(--a3)">88%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:88%"></div></div>
+          </div>
+          <div class="skill-bar" data-reveal data-delay="300">
+            <div class="skill-bar-top"><span>SEO Optimization</span><span style="color:var(--a3)">90%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:90%"></div></div>
+          </div>
+          <div class="skill-bar" data-reveal data-delay="350">
+            <div class="skill-bar-top"><span>Animation / GSAP</span><span style="color:var(--a3)">95%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:95%"></div></div>
+          </div>
         </div>
-        <div class="glass service-card" data-reveal data-delay="100">
-          <span class="service-icon">💡</span>
-          <h3>Innovation</h3>
-          <p>Staying ahead of design trends and technology — bringing fresh, modern solutions that set your brand apart from the competition.</p>
+
+        <div>
+          <div class="section-label" data-reveal>CORE VALUES</div>
+          <h2 class="section-title" data-reveal data-delay="100" style="margin-bottom:2rem">What Drives <span>Every Project</span></h2>
+          <div class="glass service-card" data-reveal data-delay="0" style="padding:1.4rem;margin-bottom:1rem">
+            <span class="service-icon" style="font-size:1.7rem;margin-bottom:.5rem">🎯</span>
+            <h3 style="font-size:.93rem">Precision</h3>
+            <p style="font-size:.84rem">Every pixel, every animation, every interaction crafted with meticulous attention. No shortcuts.</p>
+          </div>
+          <div class="glass service-card" data-reveal data-delay="100" style="padding:1.4rem;margin-bottom:1rem">
+            <span class="service-icon" style="font-size:1.7rem;margin-bottom:.5rem">💡</span>
+            <h3 style="font-size:.93rem">Innovation</h3>
+            <p style="font-size:.84rem">Staying ahead of trends — bringing fresh, modern solutions that set your brand apart.</p>
+          </div>
+          <div class="glass service-card" data-reveal data-delay="200" style="padding:1.4rem">
+            <span class="service-icon" style="font-size:1.7rem;margin-bottom:.5rem">🤝</span>
+            <h3 style="font-size:.93rem">Partnership</h3>
+            <p style="font-size:.84rem">Clients are partners. Open communication and genuine care — always non-negotiable.</p>
+          </div>
         </div>
-        <div class="glass service-card" data-reveal data-delay="200">
-          <span class="service-icon">🤝</span>
-          <h3>Partnership</h3>
-          <p>Clients are treated as partners. Open communication, transparency, and genuine care for your project's success are non-negotiable.</p>
-        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- STATS MINI -->
+  <div class="grad-line"></div>
+
+  <!-- STATS -->
   <section class="section-sm">
     <div class="container">
       <div class="stats-grid">
         <div class="glass stat-card" data-reveal data-delay="0">
-          <div class="stat-num">3+</div>
+          <div class="stat-num" data-count="3+">0+</div>
           <div class="stat-label">Years Experience</div>
         </div>
         <div class="glass stat-card" data-reveal data-delay="100">
-          <div class="stat-num">50+</div>
+          <div class="stat-num" data-count="50+">0+</div>
           <div class="stat-label">Projects Delivered</div>
         </div>
         <div class="glass stat-card" data-reveal data-delay="200">
-          <div class="stat-num">20+</div>
+          <div class="stat-num" data-count="20+">0+</div>
           <div class="stat-label">Languages</div>
         </div>
         <div class="glass stat-card" data-reveal data-delay="300">
-          <div class="stat-num">100%</div>
+          <div class="stat-num" data-count="100%">0%</div>
           <div class="stat-label">Client Satisfaction</div>
         </div>
       </div>
@@ -144,12 +217,13 @@
   </section>
 
   <!-- CTA -->
-  <section style="padding:5rem 0;text-align:center;">
-    <div class="container" style="max-width:600px;">
+  <section style="padding:5rem 0;text-align:center;position:relative;overflow:hidden">
+    <div class="hero-bg"></div>
+    <div class="container" style="max-width:600px;position:relative;z-index:2">
       <h2 class="section-title" data-reveal>Ready to <span>Work Together?</span></h2>
-      <p class="section-sub" data-reveal data-delay="100" style="margin-bottom:2rem;">Let's build something extraordinary. Reach out and let's talk about your vision.</p>
+      <p class="section-sub" data-reveal data-delay="100" style="margin-bottom:2rem">Let's build something extraordinary. Reach out and let's talk about your vision.</p>
       <div data-reveal data-delay="200">
-        <a href="contact.html" class="btn btn-water" style="font-size:1rem;padding:1rem 2.5rem;">✦ Start a Project</a>
+        <a href="contact.html" class="btn btn-water" style="font-size:1rem;padding:1rem 2.5rem">✦ Start a Project</a>
       </div>
     </div>
   </section>
@@ -159,7 +233,7 @@
 <footer class="site-footer">
   <div class="footer-grid">
     <div class="footer-brand">
-      <div class="header-logo" style="font-size:1.3rem;">SK Baloch</div>
+      <div class="header-logo" style="font-size:1.3rem">SK Baloch</div>
       <p>Premium website developer crafting digital experiences that convert and impress. Trusted by 50+ clients worldwide.</p>
     </div>
     <div class="footer-col">
@@ -181,21 +255,35 @@
     </div>
   </div>
   <div class="footer-bottom">
-    © 2025 SK Baloch. <span data-t="footer.rights">All rights reserved.</span>
+    <span>© 2025 SK Baloch. <span data-t="footer.rights">All rights reserved.</span></span>
+    <span style="color:var(--a3);font-size:.77rem">Built with ♥ &amp; Precision</span>
   </div>
 </footer>
 
 <div class="float-btns">
   <a href="https://wa.me/923046412577" target="_blank" class="float-btn float-btn-wa" aria-label="WhatsApp">
-    <span class="float-tooltip">WhatsApp Us</span>
+    <span class="float-tip">WhatsApp Us</span>
     <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
   <a href="mailto:itxskbaloch@gmail.com" class="float-btn float-btn-em" aria-label="Email">
-    <span class="float-tooltip">Send Email</span>
+    <span class="float-tip">Send Email</span>
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
   </a>
 </div>
 
 <script src="js/shared.js"></script>
+<script>
+  const barObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting) {
+        e.target.querySelectorAll('.skill-bar-fill').forEach((b,i) =>
+          setTimeout(() => b.classList.add('on'), i*80)
+        );
+        barObs.unobserve(e.target);
+      }
+    });
+  }, {threshold:.3});
+  document.querySelectorAll('.skill-bar').forEach(el => barObs.observe(el));
+</script>
 </body>
 </html>
