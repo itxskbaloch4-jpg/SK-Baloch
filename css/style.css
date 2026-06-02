@@ -121,7 +121,7 @@ body::before {
   content: '';
   position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
   background:
     radial-gradient(ellipse 120% 70% at 80% -10%,  rgba(192, 132, 252, 0.18) 0%, transparent 55%),
