@@ -6,7 +6,7 @@
 /* ── THEME ── */
 const themeBtn = document.getElementById('themeBtn');
 const html = document.documentElement;
-html.setAttribute('data-theme', localStorage.getItem('skb-theme') || 'dark');
+html.setAttribute('data-theme', localStorage.getItem('skb-theme') || 'light');
 themeBtn?.addEventListener('click', () => {
   const t = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
   html.setAttribute('data-theme', t);
