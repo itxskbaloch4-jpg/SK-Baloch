@@ -2427,3 +2427,28 @@ html.lenis { height: auto; }
   opacity: 1 !important;
   transform: none !important;
 }
+/* Laptop image styling aur size control */
+.hero-laptop-img {
+  width: 100%;
+  max-width: 420px; /* Desktop par size fit rakhne ke liye */
+  height: auto;
+  border-radius: 16px; /* Smooth professional edges */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* Premium glassmorphism shadow */
+  object-fit: cover;
+  display: block;
+  animation: floatImage 6s ease-in-out infinite; /* Orbit rings ke sath match karne ke liye floating effect */
+}
+
+/* Floating animation */
+@keyframes floatImage {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .hero-laptop-img {
+    max-width: 280px; /* Choti screens par image auto-adjust ho jaye */
+    margin: 0 auto;
+  }
+}
