@@ -918,7 +918,7 @@ a {
 }
 
 .page-wrap {
-  padding-top: var(--header-h);
+   padding-top: 0;
 }
 
 /* ════════════════════════════════════════
