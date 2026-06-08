@@ -907,12 +907,12 @@ a {
 }
 
 .page-hero {
-  min-height: 50vh;
+  min-height: unset;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: calc(var(--header-h) + 60px) 20px 80px;
+  padding: calc(var(--header-h) + 20px) 20px 30px;
   position: relative;
   overflow: hidden;
 }
