@@ -905,14 +905,13 @@ a {
   background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(200,255,0,0.07), transparent 60%);
   pointer-events: none;
 }
-
 .page-hero {
-  min-height: unset;
+  min-height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: calc(var(--header-h) + 20px) 20px 30px;
+  padding: calc(var(--header-h) + 60px) 20px 80px;
   position: relative;
   overflow: hidden;
 }
