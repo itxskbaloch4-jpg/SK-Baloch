@@ -1,77 +1,113 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <meta name="description" content="About SK Baloch — Premium Website Developer."/>
-  <title>About | SK Baloch</title>
-  <link rel="icon" type="image/png" href="favicon.png"/>
-  <link rel="stylesheet" href="css/style.css"/>
+  <title>About SK Baloch | Premium Website Developer — Background &amp; Skills</title>
+  <meta name="description" content="Learn about SK Baloch — premium website developer with 3+ years of experience, 50+ projects delivered in 20+ languages. Expert in React, Next.js, and modern web technologies."/>
+  <meta name="keywords" content="SK Baloch about, web developer background, React developer skills, frontend developer portfolio, SK Baloch biography"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://sk-baloch.vercel.app/about.html"/>
+  <meta property="og:title" content="About SK Baloch | Premium Website Developer"/>
+  <meta property="og:description" content="3+ years of experience, 50+ projects delivered worldwide. Expert in React, Next.js, UI/UX Design and SEO."/>
+  <meta property="og:url" content="https://sk-baloch.vercel.app/about.html"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "SK Baloch",
+    "jobTitle": "Premium Website Developer",
+    "description": "Premium website developer with 3+ years experience, 50+ projects delivered in 20+ languages",
+    "url": "https://sk-baloch.vercel.app/about.html",
+    "email": "itxskbaloch@gmail.com",
+    "telephone": "+923046412577",
+    "knowsAbout": ["HTML5", "CSS3", "JavaScript", "React", "Next.js", "TailwindCSS", "SEO", "UI/UX Design", "Node.js", "Supabase"],
+    "hasOccupation": {
+      "@type": "Occupation",
+      "name": "Web Developer",
+      "occupationLocation": { "@type": "Place", "name": "Worldwide (Remote)" }
+    }
+  }
+  </script>
+  <link rel="icon" type="image/png" href="/favicon.png"/>
+  <meta name="theme-color" content="#0a0a0f"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/css/style.css"/>
 </head>
 <body>
 
-<div class="progress-bar"></div>
-<div id="cursor-dot"></div>
-<div id="cursor-ring"></div>
-<canvas id="bubble-canvas"></canvas>
+<div class="noise-overlay" aria-hidden="true"></div>
+<div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+<canvas id="bubbleCanvas" aria-hidden="true"></canvas>
 
-<header class="site-header">
-  <a href="index.html" class="header-logo">SK Baloch</a>
-  <nav class="site-nav">
-    <a href="index.html" data-t="nav.home">Home</a>
-    <a href="about.html" class="active" data-t="nav.about">About</a>
-    <a href="projects.html" data-t="nav.projects">Projects</a>
-    <a href="contact.html" data-t="nav.contact">Contact</a>
-  </nav>
-  <div class="header-controls">
-    <select class="lang-select" id="langSelect">
-      <option value="en">🌐 EN</option><option value="es">ES</option>
-      <option value="fr">FR</option><option value="de">DE</option>
-      <option value="it">IT</option><option value="pt">PT</option>
-      <option value="nl">NL</option><option value="pl">PL</option>
-      <option value="sv">SV</option>
-    </select>
-    <button class="theme-btn" id="themeBtn" aria-label="Toggle theme"></button>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+<header class="site-header" id="siteHeader" role="banner">
+  <div class="header-inner">
+    <a href="index.html" class="header-logo" aria-label="SK Baloch — Home">
+      <span class="logo-text">SK Baloch</span>
+      <span class="logo-dot" aria-hidden="true"></span>
+    </a>
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+      <a href="index.html" class="nav-link" data-t="nav.home">Home</a>
+      <a href="about.html" class="nav-link active" aria-current="page" data-t="nav.about">About</a>
+      <a href="projects.html" class="nav-link" data-t="nav.projects">Projects</a>
+      <a href="contact.html" class="nav-link" data-t="nav.contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <select class="lang-select" id="langSelect" aria-label="Select language">
+        <option value="en">🌐 EN</option><option value="es">ES</option>
+        <option value="fr">FR</option><option value="de">DE</option>
+        <option value="it">IT</option><option value="pt">PT</option>
+        <option value="nl">NL</option><option value="pl">PL</option>
+        <option value="sv">SV</option>
+      </select>
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle light/dark theme"></button>
+      <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
 
-<nav class="mobile-nav" id="mobileNav">
-  <a href="index.html" data-t="nav.home">Home</a>
-  <a href="about.html" class="active" data-t="nav.about">About</a>
-  <a href="projects.html" data-t="nav.projects">Projects</a>
-  <a href="contact.html" data-t="nav.contact">Contact</a>
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+  <div class="mobile-nav-inner">
+    <a href="index.html" class="mobile-nav-link" data-t="nav.home">Home</a>
+    <a href="about.html" class="mobile-nav-link active" data-t="nav.about">About</a>
+    <a href="projects.html" class="mobile-nav-link" data-t="nav.projects">Projects</a>
+    <a href="contact.html" class="mobile-nav-link" data-t="nav.contact">Contact</a>
+    <div class="mobile-nav-cta">
+      <a href="contact.html" class="btn btn-primary">✦ Get a Quote</a>
+    </div>
+  </div>
 </nav>
 
-<div class="page-wrap">
+<main id="main-content">
 
-  <!-- HERO -->
-  <section style="padding:8rem 0 5rem;position:relative;overflow:hidden">
-    <div class="hero-bg"></div>
-    <div class="dot-grid"></div>
-    <div class="nebula-orb orb-1"></div>
-    <div class="nebula-orb orb-2"></div>
+  <!-- PAGE HERO -->
+  <section class="page-hero" aria-labelledby="about-heading">
+    <div class="hero-gradient" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-orb orb-1" aria-hidden="true"></div>
+    <div class="hero-orb orb-2" aria-hidden="true"></div>
     <div class="container" style="position:relative;z-index:2">
-      <div class="about-grid">
+      <div class="about-hero-grid">
 
-        <div>
-          <div class="section-label anim-in">ABOUT ME</div>
-          <h1 class="section-title anim-in" style="animation-delay:.15s;font-size:clamp(2.4rem,5vw,4rem);margin-bottom:1.5rem">
-            The Developer<br>Behind the <span>Magic</span>
+        <div class="about-content">
+          <div class="section-label reveal-up" style="--d:0s">ABOUT ME</div>
+          <h1 class="section-title reveal-up" style="--d:0.1s;font-size:clamp(2.4rem,5vw,4rem)" id="about-heading">
+            The Developer<br>Behind the <span class="grad-text">Magic</span>
           </h1>
-          <p style="color:var(--t2);line-height:1.85;font-size:1rem;max-width:540px" class="anim-in">
+          <p class="section-sub reveal-up" style="--d:0.2s">
             SK Baloch is a premium website developer with a passion for crafting exceptional digital experiences. Specializing in building modern, high-performance business websites that deliver measurable results.
           </p>
-          <p style="color:var(--t2);line-height:1.85;font-size:1rem;max-width:540px;margin-top:1rem" class="anim-in">
+          <p class="section-sub reveal-up" style="--d:0.3s">
             With complete mastery over HTML5, CSS3, JavaScript, React, Next.js, TailwindCSS, and advanced animation frameworks — every line of code is written with purpose.
           </p>
 
-          <div class="timeline anim-in" style="animation-delay:.4s">
+          <div class="timeline reveal-up" style="--d:0.4s">
             <div class="tl-item">
               <div class="tl-year">2022</div>
               <h5>Started Web Development Journey</h5>
@@ -94,7 +130,7 @@
             </div>
           </div>
 
-          <div class="skill-tags" style="margin-top:2rem">
+          <div class="skill-tags reveal-up" style="--d:0.5s">
             <span class="skill-tag">HTML5 / CSS3</span>
             <span class="skill-tag">JavaScript</span>
             <span class="skill-tag">React</span>
@@ -110,17 +146,20 @@
           </div>
         </div>
 
-        <div style="position:relative" data-reveal>
-          <div class="about-card-main">🧑‍💻</div>
+        <div class="about-visual" data-reveal>
+          <div class="about-card-main">
+            <div class="about-emoji" aria-hidden="true">🧑‍💻</div>
+            <div class="about-card-glow" aria-hidden="true"></div>
+          </div>
           <div class="badge-float bf-top">
-            <div class="bf-icon">⭐</div>
+            <div class="bf-icon" aria-hidden="true">⭐</div>
             <div>
               <div class="bf-val">4.9 / 5.0</div>
               <div class="bf-label">Trust Score</div>
             </div>
           </div>
           <div class="badge-float bf-bottom">
-            <div class="bf-icon">🚀</div>
+            <div class="bf-icon" aria-hidden="true">🚀</div>
             <div>
               <div class="bf-val">50+ Projects</div>
               <div class="bf-label">Delivered Worldwide</div>
@@ -133,82 +172,85 @@
   </section>
 
   <!-- SKILLS + VALUES -->
-  <section class="section" style="background:var(--bg2)">
+  <section class="section" style="background:var(--bg2)" aria-labelledby="skills-heading">
     <div class="container">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start">
-
+      <div class="two-col-grid">
         <div>
           <div class="section-label" data-reveal>SKILL MASTERY</div>
-          <h2 class="section-title" data-reveal data-delay="100" style="margin-bottom:2rem">Technical <span>Expertise</span></h2>
+          <h2 class="section-title" data-reveal data-delay="100" style="margin-bottom:2rem" id="skills-heading">Technical <span class="grad-text">Expertise</span></h2>
           <div class="skill-bar" data-reveal data-delay="100">
-            <div class="skill-bar-top"><span>HTML5 / CSS3</span><span style="color:var(--a3)">98%</span></div>
+            <div class="skill-bar-top"><span>HTML5 / CSS3</span><span class="skill-pct">98%</span></div>
             <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:98%"></div></div>
           </div>
           <div class="skill-bar" data-reveal data-delay="150">
-            <div class="skill-bar-top"><span>JavaScript / React</span><span style="color:var(--a3)">94%</span></div>
+            <div class="skill-bar-top"><span>JavaScript / React</span><span class="skill-pct">94%</span></div>
             <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:94%"></div></div>
           </div>
           <div class="skill-bar" data-reveal data-delay="200">
-            <div class="skill-bar-top"><span>UI/UX Design</span><span style="color:var(--a3)">92%</span></div>
+            <div class="skill-bar-top"><span>UI/UX Design</span><span class="skill-pct">92%</span></div>
             <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:92%"></div></div>
           </div>
           <div class="skill-bar" data-reveal data-delay="250">
-            <div class="skill-bar-top"><span>Next.js / Node.js</span><span style="color:var(--a3)">88%</span></div>
+            <div class="skill-bar-top"><span>Next.js / Node.js</span><span class="skill-pct">88%</span></div>
             <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:88%"></div></div>
           </div>
           <div class="skill-bar" data-reveal data-delay="300">
-            <div class="skill-bar-top"><span>SEO Optimization</span><span style="color:var(--a3)">90%</span></div>
+            <div class="skill-bar-top"><span>SEO Optimization</span><span class="skill-pct">90%</span></div>
             <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:90%"></div></div>
           </div>
           <div class="skill-bar" data-reveal data-delay="350">
-            <div class="skill-bar-top"><span>Animation / GSAP</span><span style="color:var(--a3)">95%</span></div>
+            <div class="skill-bar-top"><span>Animation / GSAP</span><span class="skill-pct">95%</span></div>
             <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:95%"></div></div>
           </div>
         </div>
 
         <div>
           <div class="section-label" data-reveal>CORE VALUES</div>
-          <h2 class="section-title" data-reveal data-delay="100" style="margin-bottom:2rem">What Drives <span>Every Project</span></h2>
-          <div class="glass service-card" data-reveal data-delay="0" style="padding:1.4rem;margin-bottom:1rem">
-            <span class="service-icon" style="font-size:1.7rem;margin-bottom:.5rem">🎯</span>
-            <h3 style="font-size:.93rem">Precision</h3>
-            <p style="font-size:.84rem">Every pixel, every animation, every interaction crafted with meticulous attention. No shortcuts.</p>
-          </div>
-          <div class="glass service-card" data-reveal data-delay="100" style="padding:1.4rem;margin-bottom:1rem">
-            <span class="service-icon" style="font-size:1.7rem;margin-bottom:.5rem">💡</span>
-            <h3 style="font-size:.93rem">Innovation</h3>
-            <p style="font-size:.84rem">Staying ahead of trends — bringing fresh, modern solutions that set your brand apart.</p>
-          </div>
-          <div class="glass service-card" data-reveal data-delay="200" style="padding:1.4rem">
-            <span class="service-icon" style="font-size:1.7rem;margin-bottom:.5rem">🤝</span>
-            <h3 style="font-size:.93rem">Partnership</h3>
-            <p style="font-size:.84rem">Clients are partners. Open communication and genuine care — always non-negotiable.</p>
-          </div>
+          <h2 class="section-title" data-reveal data-delay="100" style="margin-bottom:2rem">What Drives <span class="grad-text">Every Project</span></h2>
+          <article class="glass-card value-card" data-reveal data-delay="0">
+            <span class="svc-icon" style="font-size:1.7rem" aria-hidden="true">🎯</span>
+            <h3>Precision</h3>
+            <p>Every pixel, every animation, every interaction crafted with meticulous attention. No shortcuts.</p>
+          </article>
+          <article class="glass-card value-card" data-reveal data-delay="100">
+            <span class="svc-icon" style="font-size:1.7rem" aria-hidden="true">💡</span>
+            <h3>Innovation</h3>
+            <p>Staying ahead of trends — bringing fresh, modern solutions that set your brand apart.</p>
+          </article>
+          <article class="glass-card value-card" data-reveal data-delay="200">
+            <span class="svc-icon" style="font-size:1.7rem" aria-hidden="true">🤝</span>
+            <h3>Partnership</h3>
+            <p>Clients are partners. Open communication and genuine care — always non-negotiable.</p>
+          </article>
         </div>
-
       </div>
     </div>
   </section>
 
-  <div class="grad-line"></div>
+  <div class="divider-line" aria-hidden="true"></div>
 
   <!-- STATS -->
-  <section class="section-sm">
+  <section class="stats-section section-sm" aria-labelledby="about-stats-heading">
+    <h2 class="sr-only" id="about-stats-heading">Track Record</h2>
     <div class="container">
       <div class="stats-grid">
-        <div class="glass stat-card" data-reveal data-delay="0">
+        <div class="stat-card glass-card" data-reveal data-delay="0">
+          <div class="stat-icon" aria-hidden="true">📅</div>
           <div class="stat-num" data-count="3+">0+</div>
           <div class="stat-label">Years Experience</div>
         </div>
-        <div class="glass stat-card" data-reveal data-delay="100">
+        <div class="stat-card glass-card" data-reveal data-delay="100">
+          <div class="stat-icon" aria-hidden="true">💼</div>
           <div class="stat-num" data-count="50+">0+</div>
           <div class="stat-label">Projects Delivered</div>
         </div>
-        <div class="glass stat-card" data-reveal data-delay="200">
+        <div class="stat-card glass-card" data-reveal data-delay="200">
+          <div class="stat-icon" aria-hidden="true">🌐</div>
           <div class="stat-num" data-count="20+">0+</div>
           <div class="stat-label">Languages</div>
         </div>
-        <div class="glass stat-card" data-reveal data-delay="300">
+        <div class="stat-card glass-card" data-reveal data-delay="300">
+          <div class="stat-icon" aria-hidden="true">💯</div>
           <div class="stat-num" data-count="100%">0%</div>
           <div class="stat-label">Client Satisfaction</div>
         </div>
@@ -217,72 +259,73 @@
   </section>
 
   <!-- CTA -->
-  <section style="padding:5rem 0;text-align:center;position:relative;overflow:hidden">
-    <div class="hero-bg"></div>
-    <div class="container" style="max-width:600px;position:relative;z-index:2">
-      <h2 class="section-title" data-reveal>Ready to <span>Work Together?</span></h2>
+  <section class="cta-section" aria-labelledby="about-cta-heading">
+    <div class="hero-gradient" aria-hidden="true"></div>
+    <div class="hero-orb orb-1" style="opacity:.04" aria-hidden="true"></div>
+    <div class="container" style="max-width:600px;position:relative;z-index:2;text-align:center">
+      <h2 class="section-title" data-reveal id="about-cta-heading">Ready to <span class="grad-text">Work Together?</span></h2>
       <p class="section-sub" data-reveal data-delay="100" style="margin-bottom:2rem">Let's build something extraordinary. Reach out and let's talk about your vision.</p>
       <div data-reveal data-delay="200">
-        <a href="contact.html" class="btn btn-water" style="font-size:1rem;padding:1rem 2.5rem">✦ Start a Project</a>
+        <a href="contact.html" class="btn btn-primary btn-lg">✦ Start a Project</a>
       </div>
     </div>
   </section>
 
-</div>
+</main>
 
-<footer class="site-footer">
+<footer class="site-footer" role="contentinfo">
   <div class="footer-grid">
     <div class="footer-brand">
-      <div class="header-logo" style="font-size:1.3rem">SK Baloch</div>
+      <a href="index.html" class="header-logo footer-logo">SK Baloch</a>
       <p>Premium website developer crafting digital experiences that convert and impress. Trusted by 50+ clients worldwide.</p>
     </div>
-    <div class="footer-col">
-      <h4>Pages</h4>
+    <nav class="footer-col" aria-label="Footer pages">
+      <h3>Pages</h3>
       <ul>
         <li><a href="index.html" data-t="nav.home">Home</a></li>
         <li><a href="about.html" data-t="nav.about">About</a></li>
         <li><a href="projects.html" data-t="nav.projects">Projects</a></li>
         <li><a href="contact.html" data-t="nav.contact">Contact</a></li>
       </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Contact</h4>
+    </nav>
+    <nav class="footer-col" aria-label="Footer contact">
+      <h3>Contact</h3>
       <ul>
-        <li><a href="https://wa.me/923046412577">WhatsApp</a></li>
+        <li><a href="https://wa.me/923046412577" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
         <li><a href="mailto:itxskbaloch@gmail.com">Email</a></li>
-        <li><a href="#">Remote · Ohio · Worldwide</a></li>
+        <li><span>Remote · Ohio · Worldwide</span></li>
       </ul>
-    </div>
+    </nav>
   </div>
   <div class="footer-bottom">
     <span>© 2025 SK Baloch. <span data-t="footer.rights">All rights reserved.</span></span>
-    <span style="color:var(--a3);font-size:.77rem">Built with ♥ &amp; Precision</span>
+    <span class="footer-credit">Built with ♥ &amp; Precision</span>
   </div>
 </footer>
 
-<div class="float-btns">
-  <a href="https://wa.me/923046412577" target="_blank" class="float-btn float-btn-wa" aria-label="WhatsApp">
+<div class="float-btns" aria-label="Quick contact">
+  <a href="https://wa.me/923046412577" target="_blank" rel="noopener noreferrer" class="float-btn float-btn-wa" aria-label="WhatsApp">
     <span class="float-tip">WhatsApp Us</span>
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
   <a href="mailto:itxskbaloch@gmail.com" class="float-btn float-btn-em" aria-label="Email">
     <span class="float-tip">Send Email</span>
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
   </a>
 </div>
 
-<script src="js/shared.js"></script>
-<script>
+<script type="module" src="/js/main.js"></script>
+<script type="module">
   const barObs = new IntersectionObserver(entries => {
     entries.forEach(e => {
-      if(e.isIntersecting) {
-        e.target.querySelectorAll('.skill-bar-fill').forEach((b,i) =>
-          setTimeout(() => b.classList.add('on'), i*80)
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.skill-bar-fill').forEach((b, i) =>
+          setTimeout(() => b.classList.add('on'), i * 100)
         );
         barObs.unobserve(e.target);
       }
     });
-  }, {threshold:.3});
+  }, { threshold: 0.3 });
   document.querySelectorAll('.skill-bar').forEach(el => barObs.observe(el));
 </script>
 </body>
